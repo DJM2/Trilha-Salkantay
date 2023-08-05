@@ -1,0 +1,109 @@
+$principal: #2493e0;
+$principal2:#0c3e72;
+$secundario: #fe5c24;
+$yellow: #ffc962;
+
+.colorP {
+    color: $principal;
+}
+
+.colorS {
+    color: $secundario;
+}
+.colorY{
+    color: $yellow;
+}
+
+.mobile {
+    display: none;
+}
+
+.top_place {
+    .single_place {
+        img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+    }
+}
+
+.carousel-djm {
+    position: absolute;
+    right: 0;
+    bottom: -5em;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+
+    li {
+        box-sizing: content-box;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        width: 18px;
+        height: 18px;
+        margin-right: 3px;
+        margin-left: 3px;
+        text-indent: -999px;
+        cursor: pointer;
+        background: $principal;
+        background-clip: padding-box;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        opacity: .5;
+        transition: opacity .6s ease;
+        border-radius: 50%;
+
+        &:active {
+            opacity: 1;
+        }
+    }
+}
+.iconos-tours{
+    span{
+        color: #fff;
+    }
+}
+.tags{
+    background: #2493e0;
+    color: #fff !important;
+    padding: 0.2em 0.8em;
+    font-size: 13px;
+    margin-right: 0.4em;
+    &:hover{
+        background: $secundario;
+    }
+}
+.destinos{
+    img{
+        height: 170px;
+        width: 100%;
+        object-fit: cover;
+    }
+    h3{
+        margin-top: 0.4em;
+        
+       a{
+        font-size: 22px;
+        color: $principal2;
+       }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .responsive {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}

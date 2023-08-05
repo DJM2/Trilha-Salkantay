@@ -1,0 +1,97 @@
+.colorP {
+  color: #2493e0;
+}
+
+.colorS {
+  color: #fe5c24;
+}
+
+.colorY {
+  color: #ffc962;
+}
+
+.mobile {
+  display: none;
+}
+
+.top_place .single_place img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.carousel-djm {
+  position: absolute;
+  right: 0;
+  bottom: -5em;
+  left: 0;
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+.carousel-djm li {
+  box-sizing: content-box;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  width: 18px;
+  height: 18px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background: #2493e0;
+  background-clip: padding-box;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+  border-radius: 50%;
+}
+.carousel-djm li:active {
+  opacity: 1;
+}
+
+.iconos-tours span {
+  color: #fff;
+}
+
+.tags {
+  background: #2493e0;
+  color: #fff !important;
+  padding: 0.2em 0.8em;
+  font-size: 13px;
+  margin-right: 0.4em;
+}
+.tags:hover {
+  background: #fe5c24;
+}
+
+.destinos img {
+  height: 170px;
+  width: 100%;
+  object-fit: cover;
+}
+.destinos h3 {
+  margin-top: 0.4em;
+}
+.destinos h3 a {
+  font-size: 22px;
+  color: #0c3e72;
+}
+
+@media (max-width: 768px) {
+  .responsive {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=estilos.css.map */
