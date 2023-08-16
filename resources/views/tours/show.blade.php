@@ -19,15 +19,18 @@
         </div>
         <!----Fin Variable de clase------>
 
-        <div class="container">
+        <div class="container texTours d-flex align-items-center justify-content-center">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="h1tours">{{ $tour->nombre }}</h1>
+                    <div style="text-align: center;">
+                        <hr style="width: 60px; border: none; border-top: 3px solid #fe5c24;">
+                    </div>
                     <div class="linea-2"></div>
-                    <div class="col-lg-12 text-center font-weight-bold" style="color: #fff">
-                        <span><i class="icon-map-marker"></i> {{ $tour->ubicacion }}</span>&nbsp;&nbsp;
-                        <span><i class="icon-clock-o"></i> {{ $tour->dias }} dias</span>&nbsp;&nbsp;
-                        <span><i class="icon-usd"></i> {{ $tour->precio }}.00</span>&nbsp;&nbsp;
+                    <div class="detalles">
+                        <span><i class="fa fa-map-marker"></i> {{ $tour->ubicacion }}</span>&nbsp;&nbsp;
+                        <span><i class="fa fa-clock-o"></i> {{ $tour->dias }} dias</span>&nbsp;&nbsp;
+                        <span><i class="fa fa-usd"></i> {{ $tour->precio }}.00</span>&nbsp;&nbsp;
                     </div>
                     @if (session('status'))
                         <div class="text-success text-center">
@@ -47,48 +50,47 @@
         <div class="container pt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <div class="details">
-                        <div class="location">
-                            <p><a href="{{ route('inicio') }}">Inicio</a> <span>/</span>
-                                <a id="cat">
-                                    {{ $tour->categoria }}
-                                    <script>
-                                        const cat = document.getElementById("cat");
-                                        const tourCategoria = "<?php echo $tour->categoria; ?>";
-                                        switch (tourCategoria) {
-                                            case "machupicchu":
-                                                cat.textContent = "Pacotes Trilha Inca";
-                                                cat.href = "{{ route('trilhas') }}";
-                                                break;
-                                            case "around":
-                                                cat.textContent = "Pacotes Machu Picchu";
-                                                cat.href = '{{ route('mapi') }}';
-                                                break;
-                                            case "hikes":
-                                                cat.textContent = "Pacotes Peru";
-                                                cat.href = '{{ route('peru') }}';
-                                                break;
-                                            case "luxury":
-                                                cat.textContent = "Rotas Alternativas";
-                                                cat.href = '{{ route('alternativas') }}';
-                                                break;
-                                            default:
-                                                cat.textContent = tourCategoria;
-                                                break;
-                                        }
-                                    </script>
-                                </a>
-                                <span>/</span>
-                            <p>&nbsp;{{ $tour->nombre }}</p>
-                            </p>
-                        </div>
+                    <div class="migas">
+                        <p>➤ <a href="{{ route('inicio') }}">Inicio</a> <span>➤</span>
+                            <a id="cat">
+                                {{ $tour->categoria }}
+                                <script>
+                                    const cat = document.getElementById("cat");
+                                    const tourCategoria = "<?php echo $tour->categoria; ?>";
+                                    switch (tourCategoria) {
+                                        case "machupicchu":
+                                            cat.textContent = "Pacotes Trilha Inca";
+                                            cat.href = "{{ route('trilhas') }}";
+                                            break;
+                                        case "around":
+                                            cat.textContent = "Pacotes Machu Picchu";
+                                            cat.href = '{{ route('mapi') }}';
+                                            break;
+                                        case "hikes":
+                                            cat.textContent = "Pacotes Peru";
+                                            cat.href = '{{ route('peru') }}';
+                                            break;
+                                        case "luxury":
+                                            cat.textContent = "Rotas Alternativas";
+                                            cat.href = '{{ route('alternativas') }}';
+                                            break;
+                                        default:
+                                            cat.textContent = tourCategoria;
+                                            break;
+                                    }
+                                </script>
+                            </a>
+                            <span>➤</span>
+                            <span class="nombre">{{ $tour->nombre }}</span>
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-8 decoracion-h2">
-                    <h2>{{ $tour->nombre }}</h2>
-                    <p class="text-justify">{!! $tour->contenido !!}</p>
-                    <br>
-                    <ul class="nav nav-tabs justify-content-center nav-fill uldjm" id="myTab" role="tablist">
+                <div class="col-lg-8 mt-5 justificado">
+                    <h2 class="h2salkantay mb-4">{{ $tour->nombre }}</h2>
+                    <p>
+                        {!! $tour->contenido !!}
+                    </p>
+                    <ul class="nav nav-tabs justify-content-center nav-fill ulsalkantay" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="roteiro-tab" data-toggle="tab" href="#roteiro" role="tab"
                                 aria-controls="roteiro" aria-selected="true"><i class="icon-pencil"></i> Resumo</a>
@@ -99,7 +101,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="generales-tab" data-toggle="tab" href="#generales" role="tab"
-                                aria-controls="generales" aria-selected="false"><i class="icon-list"></i>Condicoes Gerais</a>
+                                aria-controls="generales" aria-selected="false"><i class="icon-list"></i>Condicoes
+                                Gerais</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="inclui-tab" data-toggle="tab" href="#inclui" role="tab"
@@ -154,40 +157,41 @@
                             {!! $tour->importante !!}
                         </div>
                     </div>
-                    <div class="share">
-                        <h3>Compartir: </h3>
+                    <div class="share mt-4">
+                        <h3 class="mb-4">Compartir: </h3>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}" target="_blank"
                             rel="nofollow noopener noreferrer" target="_blank" rel="noopener nofollow"
                             class="btn-social">
-                            <i class="icon-facebook"></i>
+                            <i class="fa fa-facebook"></i>
                         </a>
                         <a href="https://twitter.com/intent/tweet?url={{ request()->fullUrl() }}" target="_blank"
                             rel="nofollow noopener noreferrer" target="_blank" rel="noopener" class="btn-social">
-                            <i class="icon-twitter"></i>
+                            <i class="fa fa-twitter"></i>
                         </a>
                         <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener"
                             class="btn-social">
-                            <i class="icon-whatsapp"></i>
+                            <i class="fa fa-whatsapp"></i>
                         </a>
                         <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request()->fullUrl() }}"
                             target="_blank" rel="noopener" class="btn-social">
-                            <i class="icon-linkedin"></i>
+                            <i class="fa fa-linkedin"></i>
                         </a>
                         <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}&description={{ urlencode($tour->descripcion) }}"
                             target="_blank" rel="noopener" class="btn-social">
-                            <i class="icon-pinterest"></i>
+                            <i class="fa fa-pinterest"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="col-lg-4 mt-3">
                     <div class="div-form-tours" style="position: sticky; top: 5.2em">
-                        <h4 class="text-center"><small style="font-size:13px">A partir de:</small>
-                            <br>USD${{ $tour->precio }}.00
+                        <h4 class="text-center" style="font-size: 30px">
+                            <small style="font-size: 16px">A partir de:</small><br>
+                            <small style="font-size: 16px">USD</small>${{ $tour->precio }}.00
                         </h4>
                         <div class="linea-2"></div>
-                        <h3 class="h3book ">Solicite informações</h3>
-                        <form class="djmFormShow" action="{{ route('mensaje') }}" method="POST">
+                        <form class="salkantayBook" action="{{ route('mensaje') }}" method="POST">
+                            <h3>Solicite informações</h3>
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-6 col-12">
@@ -234,73 +238,77 @@
                                 <button type="submit" class="boton-card">Enviar</button>
                             </div>
                         </form>
-                        <div class="card align-items-center text-center">
-                            <div class="card-bod">
-                                <h4 class="text-center mt-3">Suporte ao cliente:</h4>
+                        <div class="card align-items-center text-center cardContact">
+                            <div class="card-body">
+                                <h4>Suporte ao cliente:</h4>
                                 <p class="text-center"><i class="icon-whatsapp">
                                     </i> +51 984 606 757<br>
                                     </i> niko@nctravelcusco.com
                                 </p>
                             </div>
                         </div>
-                        <div class="card align-items-center text-center">
+                        <div class="card align-items-center text-center cardContact">
                             <div class="card-bod">
                                 <h4 class="mt-3">Formas de pagamento:</h4>
                                 <img src="{{ asset('img/galeria/Metodos-de-pagamento.webp') }}"
                                     alt="Metodos de pagamento" width="100%">
                             </div>
                         </div>
-                        <div class="card align-items-center text-center">
-                            <h4 class="mt-3">Postagens recentes:</h4>
-                            <div class="blogs-en-tours">
-                                @foreach ($blogs as $blog)
-                                    <div class="row thumbBlog">
-                                        <div class="col-5">
-                                            <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
-                                        </div>
-                                        <div class="col-7 d-flex align-items-center">
-                                            <h5>{{ $blog->nombre }}</h5>
-                                        </div>
+                        <div class="card align-items-center text-center cardContact cardPost">
+                            <h4>Postagens recentes:</h4>
+                            @foreach ($blogs as $blog)
+                                <div class="row thumb">
+                                    <div class="col-4">
+                                        <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
                                     </div>
-                                @endforeach
-                            </div>
+                                    <div class="col-8 d-flex align-items-center">
+                                        <h5>{{ $blog->nombre }}</h5>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
                 <div class="space"></div>
-                <div class="col-lg-12">
-                    <h2 class="h2-nc-travel">Passeios semelhantes:</h2>
-                    <div class="linea-2"></div>
-                </div>
-                @foreach ($tours->take(4) as $tour)
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card card-new mx-auto" style="width: 18rem;">
-                            <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
-                                <div class="img-container">
-                                    <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
-                                        alt="{{ $tour->nombre }}" loading="lazy">
+                <div class="col-lg-12 toursRelacionados">
+                    <h2>Passeios semelhantes:</h2>
+                    <div class="row">
+                        @foreach ($tours->take(4) as $tour)
+                            <div class="col-lg-3 col-md-6 relacionados">
+                                <div class="card card-new mx-auto" style="width: 18rem;">
+                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                        <div class="img-container">
+                                            <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
+                                                alt="{{ $tour->nombre }}" loading="lazy">
+                                        </div>
+                                    </a>
+                                    <div class="card-body text-center iconos-tours">
+                                        <h5 class="card-title">{{ $tour->nombre }}</h5>
+                                        <div class="row mt-4 mb-3">
+                                            <div class="col-4" style="float: left">
+                                                <span class="fa fa-clock-o"></span> {{ $tour->dias }} días
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-map-marker"></span> {{ $tour->ubicacion }}
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-usd"></span><strong>{{ $tour->precio }}.00</strong>
+                                            </div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <hr style="width: 220px; border: none; border-top: 1px dashed #fe5c24; margin-bottom: 20px">
+                                        </div>
+                                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}"
+                                            class="boton-card">
+                                            Más  detalles
+                                        </a>
+                                    </div>
                                 </div>
-                            </a>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $tour->nombre }}</h5>
-
-                                <div class="row iconos-tours mt-4">
-                                    <div class="col-4" style="float: left">
-                                        <span class="icon-clock-o"> {{ $tour->dias }} días</span>
-                                    </div>
-                                    <div class="col-4" style="float:right">
-                                        <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
-                                    </div>
-                                    <div class="col-4" style="float:right">
-                                        <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
-                                    </div>
-                                </div>
-                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">Más
-                                    detalles</a>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
+
                 <div class="space mt-5"></div>
             </div>
         </div>

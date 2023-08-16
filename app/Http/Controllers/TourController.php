@@ -51,7 +51,7 @@ class TourController extends Controller
             session()->flash('error', 'El Titulo ingresado ya existe. Por favor, elige otro.');
             return redirect()->back()->withInput();
         }
-        //Creacion de tours
+        
         $tours = new tour();
 
         $tours->id = $request->get('id');

@@ -2,7 +2,14 @@
 @section('titulo', 'Destinos Peru')
 @section('metas')
 @endsection
-
 @section('contenido')
-    Contenido de Destinos
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>
+                Destinos no Peru
+            </h1>
+        </div>
+    </div>
+</div>
 @endsection

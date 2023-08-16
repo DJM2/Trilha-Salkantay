@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">Blog</a>
+                                            <a class="dropdown-item" href="{{route('blog')}}">Blog</a>
                                             <a class="dropdown-item" href="single-blog.html">Single blog</a>
                                         </div>
                                     </li>
@@ -154,7 +154,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Blog</a>
+                                        <a class="nav-link" href="{{route('blog')}}">Blog</a>
                                     </li>
                                     <li class="nav-item navbar-collapse responsive">
                                         <div class="input-group">

@@ -6,6 +6,7 @@ use App\Models\Buscadore;
 use App\Models\Djmblog;
 use App\Models\Tour;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 use Spatie\LaravelIgnition\Recorders\QueryRecorder\Query;
 
 /**
@@ -24,7 +25,8 @@ class DjmblogController extends Controller
         $djmblogs = Djmblog::query()->with('categorias')->get();
         return view('djmblog.index', compact('djmblogs'));
     }
-    public function djmblogs(){
+    public function djmblogs()
+    {
         $blogs = Djmblog::query()->with('categorias')->get();
         $tours = Tour::all();
         return view('djmblog.listadoblogs', compact('blogs', 'tours'));

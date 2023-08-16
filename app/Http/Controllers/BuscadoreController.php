@@ -62,9 +62,9 @@ class BuscadoreController extends Controller
     public function show($slug)
     {
         $tag = Buscadore::query()->where('slug', $slug)->firstOrFail();
-        $tours = Tour::all();
+        $tags = Buscadore::all();
         $blogs = $tag->djmblogs()->get();
-        return view('buscadore.show', compact('tag', 'blogs', 'tours'));
+        return view('buscadore.show', compact('tag', 'blogs', 'tags'));
     }
     /* public function show($id)
     {
