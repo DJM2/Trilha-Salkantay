@@ -11,6 +11,7 @@
     <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link rel="icon" href="{{ asset('img/thumb/favicon-admin.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 </head>
 
 <body id="page-top">
@@ -31,21 +32,24 @@
                 <div id="espanol" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('tours.index') }}">
-                            Tours Portugués
+                            Tours
                         </a>
-                        {{-- <a class="collapse-item" href="{{ route('cat.tag.index') }}">
-                            Categorias de blog
-                        </a>
-                        <a class="collapse-item" href="{{ route('blog.index') }}">
-                            Blogs Portugués
-                        </a> --}}
+                        <a class="collapse-item" href="{{ route('categorias.index') }}">
+                            Categorias
+                        </a>                        
                     </div>
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('destinos.index') }}">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>Destinos</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ingles" aria-expanded="false" aria-controls="ingles">
                     <i class="fas fa-fw fa-language"></i>
-                    <span>Blogs Portugués</span>
+                    <span>Blogs</span>
                 </a>
                 <div id="ingles" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded">

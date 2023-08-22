@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tour extends Model
 {
-    use HasFactory;
+    protected $table = 'tours';
     protected $fillable = [
         'nombre',
         'descripcion',
@@ -22,7 +22,10 @@ class Tour extends Model
         'dias',
         'img',
         'mapa',
-        'categoria',
         'slug'
     ];
+    public function categorias()
+    {
+        return $this->belongsToMany(CategoriasTours::class, 'categorias_pivot', 'tour_id', 'categoria_id');
+    }
 }

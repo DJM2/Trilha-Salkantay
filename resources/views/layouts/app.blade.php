@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Trilha Salkantay to Machu Picchu</title>
-    <link rel="icon" href="img/favicon-admin.png">
+    <title>Trilha Salkantay to Machu Picchu - @yield('titulo')</title>
+    <link rel="shortcut icon" href="{{ asset('img/icono-home.png') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
@@ -67,10 +67,10 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <a class="nav-link responsive dropdown-toggle"
-                                                    href="{{ route('destinos') }}">
+                                                    href="{{ route('destinosLista') }}">
                                                     Destinos
                                                 </a>
-                                                <a class="nav-link mobile" href="{{ route('destinos') }}">
+                                                <a class="nav-link mobile" href="{{ route('destinosLista') }}">
                                                     Destinos
                                                 </a>
                                             </div>
@@ -81,11 +81,9 @@
                                         </div>
 
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('destinos') }}">Cusco</a>
-                                            <a class="dropdown-item" href="single-blog.html">Lima</a>
-                                            <a class="dropdown-item" href="single-blog.html">Ica</a>
-                                            <a class="dropdown-item" href="">Arequipa</a>
-                                            <a class="dropdown-item" href="">Puno</a>
+                                            @foreach ($destinos as $destino)
+                                                <a href="{{ route('destino.show', $destino->slug) }}" class="dropdown-item">{{ $destino->nombre }}</a>
+                                            @endforeach                                           
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -94,7 +92,7 @@
                                                 <a class="nav-link responsive dropdown-toggle" href="blog.html">
                                                     Pacotes Peru
                                                 </a>
-                                                <a class="nav-link mobile" href="{{ route('destinos') }}">
+                                                <a class="nav-link mobile" href="">
                                                     Pacotes Peru
                                                 </a>
                                             </div>
@@ -105,7 +103,7 @@
                                             </div>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{route('blog')}}">Blog</a>
+                                            <a class="dropdown-item" href="{{ route('blog') }}">Blog</a>
                                             <a class="dropdown-item" href="single-blog.html">Single blog</a>
                                         </div>
                                     </li>
@@ -115,7 +113,7 @@
                                                 <a class="nav-link responsive dropdown-toggle" href="blog.html">
                                                     Machu Picchu
                                                 </a>
-                                                <a class="nav-link mobile" href="{{ route('destinos') }}">
+                                                <a class="nav-link mobile" href="">
                                                     Machu Picchu
                                                 </a>
                                             </div>
@@ -137,7 +135,7 @@
                                                 <a class="nav-link responsive dropdown-toggle" href="blog.html">
                                                     Trilha Inca
                                                 </a>
-                                                <a class="nav-link mobile" href="{{ route('destinos') }}">
+                                                <a class="nav-link mobile" href="">
                                                     Trilha Inca
                                                 </a>
                                             </div>
@@ -154,7 +152,7 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{route('blog')}}">Blog</a>
+                                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                                     </li>
                                     <li class="nav-item navbar-collapse responsive">
                                         <div class="input-group">
@@ -213,8 +211,9 @@
                                 action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                                 method="get" class="form-inline">
                                 <input class="form-control" name="EMAIL" placeholder="Seu endereço de email"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Seu endereço de email'"
-                                    required="" type="email">
+                                    onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = 'Seu endereço de email'" required=""
+                                    type="email">
                                 <button class="click-btn btn btn-default text-uppercase"> <i
                                         class="fa fa-paper-plane"></i>
                                 </button>
@@ -252,8 +251,8 @@
                             Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script> Todos os direitos reservados | Este modelo é feito por <a href="https://www.facebook.com/DjmWebMaster"
-                                target="_blank">DJM2</a>
+                            </script> Todos os direitos reservados | Este modelo é feito por <a
+                                href="https://www.facebook.com/DjmWebMaster" target="_blank">DJM2</a>
                         </p>
                     </div>
                 </div>

@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class EnlacesCategorias extends Controller
 {
-    public function destinos()
-    {
-        $tours = Tour::all();
-        return view('destinos', compact('tours'));
-    }
     public function machu()
     {
         $tours = Tour::all();

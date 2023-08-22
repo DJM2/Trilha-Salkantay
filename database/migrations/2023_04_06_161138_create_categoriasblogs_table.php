@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('categoriasblogs', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->unique();
+            $table->string('slug');
             $table->timestamps();
         });
     }

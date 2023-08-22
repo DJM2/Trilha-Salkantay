@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 d-flex align-items-center justify-content-center" style="height: 50vh">
-                    <h1 class="h1Blogs">Blogs relacionados al Tag: #{{ $tag->nombre }}</h1>
+                    <h1 class="h1Blogs" style="text-transform: inherit">Blogs relacionados al Tag: #{{ $tag->nombre }}</h1>
                 </div>
             </div>
         </div>
@@ -43,8 +43,6 @@
                     <a href="{{ route('tag', $item->slug) }}">{{ $item->nombre }}</a>
                 @endforeach
             </div>
-
-
         </div>
     </section>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Destino;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,5 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        $destinos = Destino::all();
+        view()->share('destinos', $destinos);
+
+        /* $footerText = FooterText::first();
+        View::share('footerText', $footerText); */
     }
 }

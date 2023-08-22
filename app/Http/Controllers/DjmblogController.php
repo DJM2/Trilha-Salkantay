@@ -66,6 +66,7 @@ class DjmblogController extends Controller
             'descripcion' => 'required|max:255',
             'cuerpo' => 'required',
             'img' => 'required',
+            'imgThumb' => 'required',
             'keywords' => 'required|max:255',
             'categorias' => 'required|array',
             'slug' => 'required|unique:djmblogs|max:255'
@@ -81,6 +82,12 @@ class DjmblogController extends Controller
             $filename = $image->getClientOriginalName();
             $image->move(public_path('img/blog'), $filename);
             $djmblog->img = '/img/blog/' . $filename;
+        }
+        if ($request->hasFile('imgThumb')) {
+            $image = $request->file('imgThumb');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/blog/thumb'), $filename);
+            $djmblog->imgThumb = '/img/blog/thumb/' . $filename;
         }
         $djmblog->keywords = $request->get('keywords');
         $djmblog->slug = $request->get('slug');
@@ -139,6 +146,12 @@ class DjmblogController extends Controller
             $filename = $image->getClientOriginalName();
             $image->move(public_path('img/blog'), $filename);
             $djmblog->img = '/img/blog/' . $filename;
+        }
+        if ($request->hasFile('imgThumb')) {
+            $image = $request->file('imgThumb');
+            $filename = $image->getClientOriginalName();
+            $image->move(public_path('img/blog/thumb'), $filename);
+            $djmblog->imgThumb = '/img/blog/thumb/' . $filename;
         }
 
         $djmblog->keywords = $request->get('keywords');

@@ -43,11 +43,14 @@
                         <tr>
                             <td>{{ $tour->id }}</td>
                             <td>{{ $tour->nombre }}</td>
-                            {{-- <td>{{ $tour->descripcion }}</td> --}}
                             <td><img src="../img/buscador/{{ $tour->img }}" width="120px"></td>
                             <td>{{ $tour->precio }}</td>
                             <td>{{ $tour->dias }}</td>
-                            <td>{{ $tour->categoria }}</td>
+                            <td>
+                                @foreach ($tour->categorias as $categoria)
+                                    · {{ $categoria->nombre }}<br>
+                                @endforeach
+                            </td>
                             <td>{{ $tour->ubicacion }}</td>
                             <td>{{ $tour->slug }}</td>
                             <td>{{ $tour->clase }}</td>
@@ -58,7 +61,8 @@
                                     <a href="/tours/{{ $tour->id }}/edit" class="btn btn-info btn-sm" title="Editar">
                                         <i class="fa fa-edit"></i> </a>
                                     <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                        class="btn btn-success btn-sm" title="Ver tour" target="_blank"><i class="fa fa-eye"></i></a>
+                                        class="btn btn-success btn-sm" title="Ver tour" target="_blank"><i
+                                            class="fa fa-eye"></i></a>
                                     <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"
                                         onclick="alerta();"><i class="fa fa-trash"></i></button>
                                 </form>
@@ -81,8 +85,8 @@
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
         /*  $(document).ready(function() {
-                $('#tabladatos').DataTable();
-            }); */  
+                    $('#tabladatos').DataTable();
+                }); */
         var j = jQuery.noConflict();
         j(document).ready(function() {
             j('#tabladatos').DataTable();

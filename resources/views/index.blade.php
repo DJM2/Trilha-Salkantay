@@ -142,7 +142,6 @@
             </div>
         </div>
     </section>
-
     <section class="top_place mt-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -155,7 +154,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($toursTrilhas as $tour)
+               {{--  @foreach ($toursTrilhas as $tour)
                     @if ($tour->categoria == 'machupicchu')
                         <div class="col-lg-6 col-md-6">
                             <div class="single_place">
@@ -182,7 +181,7 @@
                             </div>
                         </div>
                     @endif
-                @endforeach
+                @endforeach --}}
             </div>
         </div>
     </section>

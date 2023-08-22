@@ -2546,14 +2546,12 @@ ul {
 }
 
 /*********** top place *************/
-/* line 3, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
 .top_place .single_place {
   position: relative;
   z-index: 2;
   margin-bottom: 30px;
 }
 
-/* line 7, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
 .top_place .single_place:after {
   position: absolute;
   content: "";
@@ -2568,7 +2566,6 @@ ul {
   transition: 0.5s;
 }
 
-/* line 19, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
 .top_place .single_place .hover_Text {
   padding: 40px;
   position: absolute;

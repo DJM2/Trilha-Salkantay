@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('descripcion');
             $table->text('cuerpo');
             $table->string('img');
+            $table->string('imgThumb');
             $table->string('keywords');
             $table->string('slug');
             $table->timestamps();

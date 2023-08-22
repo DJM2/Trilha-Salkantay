@@ -29,6 +29,7 @@ class Djmblog extends Model
     'descripcion' => 'required|max:255',
     'cuerpo' => 'required',
     'img' => 'required',
+    'imgThumb' => 'required',
     'keywords' => 'required|max:255',
     'categorias' => 'required|array',
     'slug' => 'required|unique:djmblogs|max:255'
@@ -41,7 +42,7 @@ class Djmblog extends Model
    *
    * @var array
    */
-  protected $fillable = ['nombre', 'descripcion', 'cuerpo', 'img', 'keywords', 'slug'];
+  protected $fillable = ['nombre', 'descripcion', 'cuerpo', 'img', 'imgThumb', 'keywords', 'slug'];
 
 
   /**

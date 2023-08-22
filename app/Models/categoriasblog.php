@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class categoriasblog extends Model
 {
-    use HasFactory;
-    protected $fillable=['nombre'];
+    protected $table = 'categoriasblogs';
+    protected $fillable=['nombre', 'slug'];
     public function tags(){
         return $this->belongsToMany(Blog::class);
     }

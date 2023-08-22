@@ -15,7 +15,7 @@
 @endsection
 @section('contenido')
     <div class="blog-head"
-        style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.53), rgba(0, 0, 0, 0.54)), url('{{ asset($blog->img) }}');">
+        style="background-image: linear-gradient(to right, rgb(0 0 0 / 12%), rgb(0 0 0 / 22%)), url('{{ asset($blog->img) }}');">
         <div class="container texTours d-flex align-items-center justify-content-center">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -29,7 +29,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <section>
         <div class="container text-center mt-4">

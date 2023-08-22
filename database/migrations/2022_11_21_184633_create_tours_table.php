@@ -27,8 +27,7 @@ return new class extends Migration
             $table->integer('precio');
             $table->integer('dias');
             $table->string('img'); 
-            $table->string('mapa')->nullable();            
-            $table->string('categoria');
+            $table->string('mapa')->nullable();     
             $table->string('keywords');
             $table->string('slug')->unique();
             $table->string('clase');
