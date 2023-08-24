@@ -154,8 +154,8 @@
                 </div>
             </div>
             <div class="row">
-               {{--  @foreach ($toursTrilhas as $tour)
-                    @if ($tour->categoria == 'machupicchu')
+                @foreach ($tours as $tour)
+                    
                         <div class="col-lg-6 col-md-6">
                             <div class="single_place">
                                 <img src="../img/buscador/{{ $tour->img }}" alt="{{ $tour->nombre }}" loading="lazy">
@@ -180,8 +180,8 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
-                @endforeach --}}
+                    
+                @endforeach
             </div>
         </div>
     </section>

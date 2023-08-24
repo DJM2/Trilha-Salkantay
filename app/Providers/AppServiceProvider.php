@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Destino;
+use App\Models\Tour;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $destinos = Destino::all();
         view()->share('destinos', $destinos);
+        $tours = Tour::all();
+        view()->share('tours', $tours);
 
         /* $footerText = FooterText::first();
         View::share('footerText', $footerText); */

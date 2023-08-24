@@ -9,42 +9,34 @@ class EnlacesCategorias extends Controller
 {
     public function machu()
     {
-        $tours = Tour::all();
-        return view('tours.machu-picchu', compact('tours'));
+        return view('tours.machu-picchu');
     }
     public function peru()
     {
-        $tours = Tour::all();
-        return view('tours.pacotes-peru', compact('tours'));
+        return view('tours.pacotes-peru');
     }
     public function trilhas()
     {
-        $tours = Tour::all();
-        return view('tours.trilha-inca', compact('tours'));
+        return view('tours.trilha-inca');
     }
     public function alternativas()
     {
-        $tours = Tour::all();
-        return view('tours.rotas-alternativas', compact('tours'));
+        return view('tours.rotas-alternativas');
     }
     public function nosotros()
     {
-        $tours = Tour::all();
-        return view('nosotros', compact('tours'));
+        return view('nosotros');
     }
     public function contato()
     {
-        $tours = Tour::all();
-        return view('tours.contato', compact('tours'));
+        return view('tours.contato');
     }
     public function reserva()
     {
-        $tours = Tour::all();
-        return view('tours.reserva', compact('tours'));
+        return view('tours.reserva');
     }
     public function condicoes()
     {
-        $tours = Tour::all();
-        return view('condicoes-gerais', compact('tours'));
+        return view('condicoes-gerais');
     }
 }

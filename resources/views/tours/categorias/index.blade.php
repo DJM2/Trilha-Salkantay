@@ -44,7 +44,7 @@
                                             <td>
                                                 <form action="{{ route('categorias.destroy', $categoria->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{-- {{ route('categoria.show', $categoria->slug) }} --}}"
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categoria.show', $categoria->slug) }}"
                                                         target="_blank"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success"
                                                         href="{{ route('categorias.edit', $categoria->id) }}"><i

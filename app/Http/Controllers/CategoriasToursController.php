@@ -55,9 +55,13 @@ class CategoriasToursController extends Controller
      * @param  \App\Models\CategoriasTours  $categoriasTours
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoriasTours $categoriasTours)
+    public function show($slug)
     {
-        //
+        $categoria = CategoriasTours::where('slug', $slug)->firstOrFail();
+        /* $relacionados = $categoria->tours; */
+        $relacionados = $categoria->tours()->get();
+        $categorias = CategoriasTours::where('id', '!=', $categoria->id)->get();
+        return view('tours.categorias.show', compact('categoria', 'relacionados', 'categorias'));
     }
 
     /**

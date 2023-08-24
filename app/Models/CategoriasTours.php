@@ -12,6 +12,6 @@ class CategoriasTours extends Model
 
     public function tours()
     {
-        return $this->belongsToMany(Tour::class, 'categorias_pivot', 'tour_id', 'categoria_id');
+        return $this->belongsToMany(Tour::class, 'categorias_pivot','categoria_id', 'tour_id' );
     }    
 }

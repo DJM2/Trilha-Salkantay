@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('contenido')
-    <div class="peru">
+    <div class="pacotesPeru">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-12 text-center">
-                    <h1 style="padding-top: 250px;color:#fff">
+                <div class="col-lg-12 destinosh1">
+                    <h1>
                         Passeios pelo Peru
                     </h1>
-                    <p style="color: #fff" class="text-center">
+                    <p>
                         Esta é uma lista de todos os nossos passeios que percorrem o Peru
                     </p>
                 </div>
@@ -23,38 +23,39 @@
                 </div>
                 <!-----Fin orueba--->
                 @foreach ($tours as $tour)
-                    @if ($tour->categoria=='hikes')
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card card-new" style="width: 18rem;">
-                            <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
-                                <div class="img-container">
-                                    <img class="card-img-top" src="../img/buscador/{{ $tour->img }}" alt="Camino Inca 4 dias"
-                                    loading="lazy">
-                                </div>
-                            </a>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $tour->nombre }}</h5>
-                                <p class="text-card">{{ $tour->descripcion }}</p>
-                                <div class="row iconos-tours">
-                                    <div class="col-4" style="float: left">
-                                        <span class="icon-clock-o"> {{ $tour->dias }} días</span>
-                                    </div>
-                                    <div class="col-4" style="float:right">
-                                        <span class="icon-map-marker"> {{ $tour->ubicacion }}</span>
-                                    </div>
-                                    <div class="col-4" style="float:right">
-                                        <span class="icon-usd"><strong>{{ $tour->precio }}</strong></span>
-                                    </div>
+                    @foreach ($tour->categorias as $categoria)
+                        @if ($categoria->nombre === 'Pacotes Peru')
+                            <div class="col-lg-4 col-md-6 img-container">
+                                <div class="card card-new">
+                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                        <div class="">
+                                            <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
+                                                alt="Camino Inca 4 dias" loading="lazy">
+                                        </div>
+                                    </a>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $tour->nombre }}</h5>
+                                        <p class="text-card">{{ $tour->descripcion }}</p>
+                                        <div class="row iconos-tours">
+                                            <div class="col-4" style="float: left">
+                                                <span class="fa fa-clock-o"></span> {{ $tour->dias }} días
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-map-marker"></span> {{ $tour->ubicacion }}
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-usd"></span> <strong>{{ $tour->precio }}</strong>
+                                            </div>
+                                        </div>
+                                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
+                                            class="btn2">Más
+                                            Info</a>
 
+                                    </div>
                                 </div>
-                                <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                    class="boton-card">Más Info</a>
-
                             </div>
-                        </div>
-                    </div>
-                        
-                    @endif
+                        @endif
+                    @endforeach
                 @endforeach
             </div>
         </div>

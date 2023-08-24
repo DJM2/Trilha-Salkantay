@@ -18,7 +18,6 @@
             </script>
         </div>
         <!----Fin Variable de clase------>
-
         <div class="container texTours d-flex align-items-center justify-content-center">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -265,7 +264,15 @@
                                         <h5>{{ $blog->nombre }}</h5>
                                     </div>
                                 </div>
-                            @endforeach
+                            @endforeach 
+                        </div>
+                        <div class="card align-items-center text-center">
+                            <div class="tagsDiv">
+                                <h4>Categorias:</h4>
+                                @foreach ($categorias as $categoria)
+                                    <a href="{{ route('categoria.show', $categoria->slug) }}"> #{{ $categoria->nombre }}</a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

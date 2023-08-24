@@ -62,6 +62,7 @@ Route::resource('categorias-Tours', CategoriasToursController::class)->middlewar
 Route::get('search', [SearchController::class, 'search'])->name('search');
 Route::get('blogsearch', [SearchController::class, 'blogsearch'])->name('blogsearch');
 Route::get('/{slug}/', [TourController::class, 'show'])->name('tours.show');
+Route::get('categorias/{slug}/', [CategoriasToursController::class, 'show'])->name('categoria.show');
 
 // Administrador de tour Ingles
 Route::resource('toursen', ToursenController::class)->middleware('auth');

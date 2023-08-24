@@ -18,10 +18,21 @@ class TourController extends Controller
 
     public function mostrar()
     {
-        /* $toursTrilhas = Tour::where('categoria', 'machupicchu')->orderBy('updated_at', 'desc')->take(6)->get(); */
+        $categoriaNombre = 'Trilha Inca';
+
+        $tours = Tour::whereHas('categorias', function ($query) use ($categoriaNombre) {
+            $query->where('nombre', $categoriaNombre);
+        })->latest('created_at')->take(6)->get();
+        $blogs = Djmblog::with('categorias')->latest('created_at')->get();
+
+        return view('index', compact('blogs', 'tours'));
+    }
+    /* public function mostrar()
+    {
+        $toursTrilhas = Tour::where('categoria', 'machupicchu')->orderBy('updated_at', 'desc')->take(6)->get();
         $blogs = Djmblog::with('categorias')->latest('created_at')->get();
         return view('index', compact('blogs'));
-    }
+    } */
     public function users()
     {
         $users = User::all();
@@ -108,7 +119,8 @@ class TourController extends Controller
         $tour = Tour::where('slug', $slug)->firstOrFail();
         $tours = Tour::where('id', '!=', $tour->id)->orderBy('dias')->get();
         $blogs = Djmblog::with('categorias')->latest('created_at')->take(4)->get();
-        return view('tours.show', compact('tour', 'tours', 'blogs'));
+        $categorias = $tour->categorias;
+        return view('tours.show', compact('tour', 'tours', 'blogs', 'categorias'));
     }
 
     /**

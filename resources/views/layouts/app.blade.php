@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trilha Salkantay to Machu Picchu - @yield('titulo')</title>
-    <link rel="shortcut icon" href="{{ asset('img/icono-home.png') }}">
+    <link rel="icon" href="{{ asset('img/thumb/favicon-admin.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
@@ -79,41 +79,20 @@
                                                     aria-haspopup="true" aria-expanded="false" id="navbarDropdown"></i>
                                             </div>
                                         </div>
-
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             @foreach ($destinos as $destino)
-                                                <a href="{{ route('destino.show', $destino->slug) }}" class="dropdown-item">{{ $destino->nombre }}</a>
-                                            @endforeach                                           
+                                                <a href="{{ route('destino.show', $destino->slug) }}"
+                                                    class="dropdown-item">{{ $destino->nombre }}</a>
+                                            @endforeach
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="blog.html">
-                                                    Pacotes Peru
-                                                </a>
-                                                <a class="nav-link mobile" href="">
-                                                    Pacotes Peru
-                                                </a>
-                                            </div>
-                                            <div class="col-6">
-                                                <i class="ml-2 d-md-none float-right dropdown-toggle" role="button"
-                                                    aria-haspopup="true" aria-expanded="false"
-                                                    id="navbarDropdown"></i>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('blog') }}">Blog</a>
-                                            <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="blog.html">
+                                                <a class="nav-link responsive dropdown-toggle" href="{{route('mapi')}}">
                                                     Machu Picchu
                                                 </a>
-                                                <a class="nav-link mobile" href="">
+                                                <a class="nav-link mobile" href="{{route('mapi')}}">
                                                     Machu Picchu
                                                 </a>
                                             </div>
@@ -124,18 +103,51 @@
                                             </div>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="blog.html">Blog</a>
-                                            <a class="dropdown-item" href="single-blog.html">Single blog</a>
+                                            @foreach ($tours as $mapi)
+                                                @foreach ($mapi->categorias as $categoria)
+                                                    @if ($categoria->nombre === 'Machu Picchu')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('tours.show', ['id' => $mapi->id, 'slug' => $mapi->slug]) }}">{{ $mapi->nombre }}</a>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
+                                        </div>
+                                    </li>                                   
+                                    
+                                    <li class="nav-item dropdown">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <a class="nav-link responsive dropdown-toggle" href="{{route('peru')}}">
+                                                    Pacotes Peru
+                                                </a>
+                                                <a class="nav-link mobile" href="{{route('peru')}}">
+                                                    Pacotes Peru
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="ml-2 d-md-none float-right dropdown-toggle" role="button"
+                                                    aria-haspopup="true" aria-expanded="false"
+                                                    id="navbarDropdown"></i>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            @foreach ($tours as $pacotes)
+                                                @foreach ($pacotes->categorias as $categoria)
+                                                    @if ($categoria->nombre === 'Pacotes Peru')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('tours.show', ['id' => $pacotes->id, 'slug' => $pacotes->slug]) }}">{{ $pacotes->nombre }}</a>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
-
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="blog.html">
+                                                <a class="nav-link responsive dropdown-toggle" href="{{route('trilhas')}}">
                                                     Trilha Inca
                                                 </a>
-                                                <a class="nav-link mobile" href="">
+                                                <a class="nav-link mobile" href="{{route('trilhas')}}">
                                                     Trilha Inca
                                                 </a>
                                             </div>
@@ -146,11 +158,17 @@
                                             </div>
                                         </div>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                            <a class="dropdown-item" href="top_place.html">top place</a>
-                                            <a class="dropdown-item" href="tour_details.html">tour details</a>
-                                            <a class="dropdown-item" href="elements.html">Elements</a>
+                                            @foreach ($tours as $trilha)
+                                                @foreach ($trilha->categorias as $categoria)
+                                                    @if ($categoria->nombre === 'Trilha Inca')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('tours.show', ['id' => $trilha->id, 'slug' => $trilha->slug]) }}">{{ $trilha->nombre }}</a>
+                                                    @endif
+                                                @endforeach
+                                            @endforeach                                            
                                         </div>
-                                    </li>
+                                    </li>                                   
+
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                                     </li>
