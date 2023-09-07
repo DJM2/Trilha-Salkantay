@@ -23,34 +23,39 @@
                 @csrf
                 @method('PUT')
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-3">
                         <label for="nombre" class="form-label">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" class="form-control" required
                             value="{{ $tour->nombre }}">
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-3">
                         <label for="" class="form-label">Precio:</label>
                         <input type="text" id="precio" name="precio" class="form-control" required
                             value="{{ $tour->precio }}" placeholder="$0.00">
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 mt-3">
                         <label for="" class="form-label">Ubicación:</label>
                         <input type="text" id="ubicacion" name="ubicacion" class="form-control" required
                             value="{{ $tour->ubicacion }}">
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-3">
                         <label for="descripcion" class="form-label">Descripción:</label>
                         <input type="text" id="descripcion" name="descripcion" class="form-control" required
                             value="{{ $tour->descripcion }}" maxlength="255">
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-3">
                         <label for="contenido" class="form-label">Contenido inicial:</label>
                         <textarea class="ckeditor form-control" name="contenido" id="contenido">{!! Request::old('content', $tour->contenido) !!}</textarea>
                         </textarea>
                     </div>
-                    <div class="col-lg-12">
-                        <label for="resumen" class="form-label">Roteiro:</label>
+                    <div class="col-lg-12 mt-3">
+                        <label for="resumen" class="form-label">Resumen del tour:</label>
                         <textarea class="ckeditor form-control" name="resumen" id="resumen">{!! Request::old('content', $tour->resumen) !!}</textarea>
+                        </textarea>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <label for="detallado" class="form-label">Tour detallado:</label>
+                        <textarea class="ckeditor form-control" name="detallado" id="detallado">{!! Request::old('content', $tour->detallado) !!}</textarea>
                         </textarea>
                     </div>
                     <div class="col-lg-12 mt-3">
@@ -61,17 +66,13 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="col-lg-12">
-                        <label for="detallado" class="form-label">Precos:</label>
-                        <textarea class="ckeditor form-control" name="detallado" id="detallado">{!! Request::old('content', $tour->detallado) !!}</textarea>
-                        </textarea>
-                    </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-6 mt-3">
                         <label for="incluidos" class="form-label">Incluidos:</label>
                         <textarea class="ckeditor form-control" name="incluidos" id="incluidos">{!! Request::old('content', $tour->incluidos) !!}</textarea>
                         </textarea>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mt-3">
                         <label for="importante" class="form-label">Opcionais:</label>
                         <textarea class="ckeditor form-control" name="importante" id="importante">{!! Request::old('content', $tour->importante) !!}</textarea>
                         </textarea>
@@ -105,13 +106,14 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-lg-6 mt-3">
                         <label class="form-label" for="clases">Clase: <small>(Para imagen de fondo)</small></label>
                         <select selected name="clase" id="clase" class="form-control form-control-sm">
-                            <option value="{{ $tour->clase }}" data-class="{{ $tour->clase }}" selected style="text-transform: capitalize">
+                            <option value="{{ $tour->clase }}" data-class="{{ $tour->clase }}" selected
+                                style="text-transform: capitalize">
                                 {{ $tour->clase }} <small>(Seleccionado)</small></option>
-                            <option value="cusconoche" data-class="cusconoche">Cusco noche</option>
+                            <option value="cusconoche" data-class="cusconoche">Cusco ciudad</option>
                             <option value="puno" data-class="puno">Isla uros</option>
                             <option value="lima1" data-class="lima1">Parque de las aguas</option>
                             <option value="ballestas" data-class="ballestas">Islas Ballestas</option>
@@ -119,23 +121,26 @@
                             <option value="mapi1" data-class="mapi1">Machu Picchu</option>
                             <option value="mapi2" data-class="mapi2">Machu Picchu 2</option>
                             <option value="caminoinca" data-class="caminoinca">Camino Inca</option>
+                            <option value="caminoinca2" data-class="caminoinca2">Camino Inca 2</option>
                             <option value="sacse" data-class="sacse">Sacsayhuaman</option>
                             <option value="valle" data-class="valle">Valle Sagrado de los incas</option>
                             <option value="valle2" data-class="valle2">Valle Sagrado de los incas 2</option>
                             <option value="salkantay" data-class="salkantay">Salkantay</option>
+                            <option value="salkantay2" data-class="salkantay2">Salkantay 2</option>
                             <option value="choque" data-class="choque">Choquequirao</option>
                             <option value="vinicunca" data-class="vinicunca">Vinicunca</option>
                             <option value="humantay" data-class="humantay">Humantay</option>
                             <option value="palcoyo" data-class="palcoyo">Palcoyo</option>
                             <option value="qeswachaca" data-class="qeswachaca">Qeswachaca</option>
                         </select>
-                        <div id="blog" class="{{ $tour->clase }}" style="width: 100%; height: 350px; object-fit: cover">
+                        <div id="blog" class="{{ $tour->clase }}"
+                            style="width: 100%; height: 350px; object-fit: cover">
                         </div>
                     </div>
                     <script>
                         const select = document.getElementById('clase');
                         const blogDiv = document.getElementById('blog');
-                    
+
                         select.addEventListener('change', function() {
                             const selectedClass = this.value;
                             blogDiv.className = selectedClass;
@@ -156,7 +161,7 @@
                         {{ Form::text('slug', $tour->slug, ['class' => 'form-control' . ($errors->has('slug') ? ' is-invalid' : ''), 'placeholder' => 'Slug', 'onkeyup' => 'replaceSpaces(this)']) }}
                         {!! $errors->first('slug', '<div class="invalid-feedback">:message</div>') !!}
                     </div>
-            
+
                     <script>
                         function replaceSpaces(input) {
                             var value = input.value;
@@ -169,7 +174,7 @@
                             $('.ckeditor').ckeditor();
                         });
                     </script>
-                    
+
                 </div>
                 <a href="/tours" class="btn btn-secondary mt-4 float-right">Cancelar</a>
                 <button class="btn btn-primary mt-4" type="submit">Guardar</button>

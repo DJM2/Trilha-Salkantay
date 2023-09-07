@@ -14,6 +14,9 @@
     <meta name="robots" content="index,follow" />
 @endsection
 @section('contenido')
+    @if (auth()->check())
+        <a href="{{ route('djm.edit', $blog->id) }}" class="loggeado" target="_blank">Editar Blog</a>
+    @endif
     <div class="blog-head"
         style="background-image: linear-gradient(to right, rgb(0 0 0 / 12%), rgb(0 0 0 / 22%)), url('{{ asset($blog->img) }}');">
         <div class="container texTours d-flex align-items-center justify-content-center">
@@ -70,13 +73,13 @@
                     <div class="card">
                         <h4>Postagens recentes:</h4>
                         @foreach ($djmblogs as $blog)
-                            <a href="">
+                            <a href="{{ route('muestrame', ['slug' => $blog->slug]) }}">
                                 <div class="row thumb">
                                     <div class="col-4">
-                                        <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
+                                        <img src="{{ $blog->imgThumb }}" alt="{{ $blog->nombre }}" loading="lazy">
                                     </div>
                                     <div class="col-8 d-flex align-items-center">
-                                        <h5>{{ $blog->nombre }}</h5>
+                                        <h5 style="font-size: 14px; font-weight: bold;">{{ $blog->nombre }}</h5>
                                     </div>
                                 </div>
                             </a>
@@ -86,8 +89,8 @@
                         <h4>Tours:</h4>
                         <div class="toursBlog">
                             @foreach ($tours->take(4) as $tour)
-                                <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
-                                    <i class="icon-arrow-right"></i> {{ $tour->nombre }}
+                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
+                                    <i class="icon-arrow-right"></i>· {{ $tour->nombre }}
                                     <span>→ {{ $tour->dias }} días</span>
                                 </a>
                             @endforeach

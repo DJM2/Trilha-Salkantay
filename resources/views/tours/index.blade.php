@@ -60,7 +60,7 @@
                                     @method('DELETE')
                                     <a href="/tours/{{ $tour->id }}/edit" class="btn btn-info btn-sm" title="Editar">
                                         <i class="fa fa-edit"></i> </a>
-                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}"
                                         class="btn btn-success btn-sm" title="Ver tour" target="_blank"><i
                                             class="fa fa-eye"></i></a>
                                     <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"

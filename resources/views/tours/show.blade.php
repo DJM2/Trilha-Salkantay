@@ -2,6 +2,9 @@
 @section('titulo', $tour->nombre)
 @include('layouts.metas')
 @section('contenido')
+    @if (auth()->check())
+        <a href="/tours/{{ $tour->id }}/edit" class="loggeado" target="_blank">Editar Tour</a>
+    @endif
     <div class="blog" id="blog">
         <!----Variable de clase------>
         <div id="sarah" style="opacity: 0">
@@ -50,34 +53,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="migas">
-                        <p>➤ <a href="{{ route('inicio') }}">Inicio</a> <span>➤</span>
+                        <p><a href="{{ route('inicio') }}">Inicio</a> <span>➤</span>
                             <a id="cat">
-                                {{ $tour->categoria }}
-                                <script>
-                                    const cat = document.getElementById("cat");
-                                    const tourCategoria = "<?php echo $tour->categoria; ?>";
-                                    switch (tourCategoria) {
-                                        case "machupicchu":
-                                            cat.textContent = "Pacotes Trilha Inca";
-                                            cat.href = "{{ route('trilhas') }}";
-                                            break;
-                                        case "around":
-                                            cat.textContent = "Pacotes Machu Picchu";
-                                            cat.href = '{{ route('mapi') }}';
-                                            break;
-                                        case "hikes":
-                                            cat.textContent = "Pacotes Peru";
-                                            cat.href = '{{ route('peru') }}';
-                                            break;
-                                        case "luxury":
-                                            cat.textContent = "Rotas Alternativas";
-                                            cat.href = '{{ route('alternativas') }}';
-                                            break;
-                                        default:
-                                            cat.textContent = tourCategoria;
-                                            break;
-                                    }
-                                </script>
+                                @foreach ($tour->categorias as $categoria)
+                                    <a href="{{ route('categoria.show', $categoria->slug) }}">{{ $categoria->nombre }}</a>
+                                    @if (!$loop->last)
+                                        <span>,</span>
+                                    @endif
+                                @endforeach
                             </a>
                             <span>➤</span>
                             <span class="nombre">{{ $tour->nombre }}</span>
@@ -121,7 +104,8 @@
                         <div class="tab-pane fade show active cuerpoImgs" id="roteiro" role="tabpanel"
                             aria-labelledby="roteiro-tab">
                             {!! $tour->resumen !!}</div>
-                        <div class="tab-pane fade cuerpoImgs" id="precos" role="tabpanel" aria-labelledby="precose-tab">
+                        <div class="tab-pane fade cuerpoImgs" id="precos" role="tabpanel"
+                            aria-labelledby="precose-tab">
                             {!! $tour->detallado !!}
                         </div>
                         <div class="tab-pane fade" id="generales" role="tabpanel" aria-labelledby="generales-tab">
@@ -189,17 +173,17 @@
                             <small style="font-size: 16px">USD</small>${{ $tour->precio }}.00
                         </h4>
                         <div class="linea-2"></div>
-                        <form class="salkantayBook" action="{{ route('mensaje') }}" method="POST">
+                        <form class="salkantayBook" action="{{ route('mensaje') }}" method="POST" id="mi_formulario">
                             <h3>Solicite informações</h3>
                             @csrf
                             <div class="form-row">
                                 <div class="form-group col-lg-6 col-12">
-                                    <label for="inputEmail4">Nome:</label>
+                                    <label>Nome:</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
                                 <div class="form-group col-lg-6 col-12">
-                                    <label for="inputEmail4">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <label>Email:</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" required>
                                 </div>
 
                                 <div class="form-group col-md-6 col-12">
@@ -212,7 +196,6 @@
                                         ⓘ</label>
                                     <input type="number" name="childs" class="form-control" id="inputAddress2">
                                 </div>
-
                                 <div class="form-group col-md-6 col-12">
                                     <label for="inputCity">Data da viagem Peru:</label>
                                     <input type="date" name="date" class="form-control" id="date">
@@ -220,7 +203,7 @@
 
                                 <div class="form-group col-md-6 col-12">
                                     <label for="inputCity">Número telefone: <i class="icon-whatsapp"></i></label>
-                                    <input type="number" class="form-control" id="phone" name="phone" required>
+                                    <input type="text" class="form-control" id="phone" name="phone" required>
                                 </div>
                                 <div class="form-group col-md-12 col-12">
                                     <label for="tour">Percorrer:</label>
@@ -233,10 +216,12 @@
                                     </textarea>
                                 </div>
                             </div>
+                            <input type="text" name="verificar" style="display:none;">                            
                             <div class="text-center">
                                 <button type="submit" class="boton-card">Enviar</button>
                             </div>
                         </form>
+
                         <div class="card align-items-center text-center cardContact">
                             <div class="card-body">
                                 <h4>Suporte ao cliente:</h4>
@@ -264,13 +249,14 @@
                                         <h5>{{ $blog->nombre }}</h5>
                                     </div>
                                 </div>
-                            @endforeach 
+                            @endforeach
                         </div>
-                        <div class="card align-items-center text-center">
-                            <div class="tagsDiv">
-                                <h4>Categorias:</h4>
+                        <div class="card align-items-center text-center cardContact">
+                            <div class="tagsDiv mb-4">
+                                <h4 class="mt-2">Categorias:</h4>
                                 @foreach ($categorias as $categoria)
-                                    <a href="{{ route('categoria.show', $categoria->slug) }}"> #{{ $categoria->nombre }}</a>
+                                    <a href="{{ route('categoria.show', $categoria->slug) }}">
+                                        #{{ $categoria->nombre }}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -283,7 +269,7 @@
                         @foreach ($tours->take(4) as $tour)
                             <div class="col-lg-3 col-md-6 relacionados">
                                 <div class="card card-new mx-auto" style="width: 18rem;">
-                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
                                         <div class="img-container">
                                             <img class="card-img-top" src="img/buscador/{{ $tour->img }}"
                                                 alt="{{ $tour->nombre }}" loading="lazy">
@@ -303,11 +289,11 @@
                                             </div>
                                         </div>
                                         <div style="text-align: center;">
-                                            <hr style="width: 220px; border: none; border-top: 1px dashed #fe5c24; margin-bottom: 20px">
+                                            <hr
+                                                style="width: 220px; border: none; border-top: 1px dashed #fe5c24; margin-bottom: 20px">
                                         </div>
-                                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}"
-                                            class="boton-card">
-                                            Más  detalles
+                                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="boton-card">
+                                            Más detalles
                                         </a>
                                     </div>
                                 </div>

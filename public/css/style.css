@@ -2106,7 +2106,7 @@ ul {
 }
 
 .menu_fixed span {
-  color: #000 !important;
+  color: #2493e0 !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -2126,6 +2126,9 @@ ul {
 
 .dropdown .dropdown-item {
   text-transform: capitalize;
+  font-weight: bold;
+    border-bottom: 1px dashed #4b657f63;
+    margin-bottom: 10px;
 }
 
 .dropdown:hover .dropdown-menu {

@@ -7,7 +7,6 @@
 <file name="inicio.blade.php" server="ftp.happyperutours.com" local="133149257251515273" remote="133159657200000000" Dst="0" />
 <file name="peru-blog.blade.php" server="ftp.happyperutours.com" local="133147416061327377" remote="133159657200000000" Dst="0" />
 <file name="terms.blade.php" server="ftp.happyperutours.com" local="133133576401297286" remote="133148189400000000" Dst="0" />
-<file name="welcome.blade.php" server="ftp.happyperutours.com" local="133129126980000000" remote="133159657200000000" Dst="0" />
 <file name="index.blade.php" server="15.235.54.105" local="133269273889832870" remote="133271961000000000" Dst="0" />
 <file name="home.blade.php" server="15.235.54.105" local="133271031252324383" remote="133271905200000000" Dst="0" />
 <file name="nosotros.blade.php" server="15.235.54.105" local="133270955938602084" remote="133271136000000000" Dst="0" />
@@ -18,5 +17,5 @@
 <file name="peru-blog.blade.php" server="15.235.54.105" local="133147416061327377" remote="133271961600000000" Dst="0" />
 <file name="preguntas-frecuentes.blade.php" server="15.235.54.105" local="133184492723296165" remote="133271961600000000" Dst="0" />
 <file name="terminos-y-condiciones.blade.php" server="15.235.54.105" local="133183848113495822" remote="133271961600000000" Dst="0" />
-<file name="welcome.blade.php" server="15.235.54.105" local="133129126980000000" remote="133271961600000000" Dst="0" />
+<file name="index.blade.php" server="199.103.62.205" local="133379740328653724" remote="133379920200000000" Dst="0" />
 </dwsync>

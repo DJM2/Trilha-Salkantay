@@ -20,6 +20,27 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @yield('metas')
+    <script type="text/javascript">
+        function callbackThen(response) {
+            console.log(response.status);
+            response.json().then(function(data) {
+                console.log(data);
+                if (data && data.score) {
+                    document.getElementById("recaptcha_score").value = data.score;
+                    document.getElementById("mi_formulario").submit();
+                }
+            });
+        }
+
+        function callbackCatch(error) {
+            console.error('Error:', error)
+        }
+    </script>
+
+    {!! htmlScriptTagJsApi([
+        'callback_then' => 'callbackThen',
+        'callback_catch' => 'callbackCatch',
+    ]) !!}
 </head>
 
 <body>
@@ -35,10 +56,14 @@
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_social_icon">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/MachupicchuCusco" target="_blank"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a href="https://www.pinterest.es/nctravelcusco/" target="_blank"><i
+                                    class="fa fa-pinterest"></i></a>
+                            <a href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d6886235-Reviews-Nc_Travel_Cusco-Cusco_Cusco_Region.html"
+                                target="_blank"><i class="fa fa-tripadvisor"></i></a>
+                            <a href="https://www.instagram.com/nctravelcusco_oficial/" target="_blank"><i
+                                    class="fa fa-instagram"></i></a>
                             <span><i class="fa fa-whatsapp"></i>+51 984 606 757</a></span>
                         </div>
                     </div>
@@ -89,10 +114,11 @@
                                     <li class="nav-item dropdown">
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="{{route('mapi')}}">
+                                                <a class="nav-link responsive dropdown-toggle"
+                                                    href="{{ route('mapi') }}">
                                                     Machu Picchu
                                                 </a>
-                                                <a class="nav-link mobile" href="{{route('mapi')}}">
+                                                <a class="nav-link mobile" href="{{ route('mapi') }}">
                                                     Machu Picchu
                                                 </a>
                                             </div>
@@ -107,20 +133,26 @@
                                                 @foreach ($mapi->categorias as $categoria)
                                                     @if ($categoria->nombre === 'Machu Picchu')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('tours.show', ['id' => $mapi->id, 'slug' => $mapi->slug]) }}">{{ $mapi->nombre }}</a>
+                                                            href="{{ route('tours.show', ['slug' => $mapi->slug]) }}">
+                                                            {{ $mapi->nombre }} <span
+                                                                style="color: #2493e0;font-weight: bold;
+                                                            font-size: 14px;">→
+                                                                {{ $mapi->dias }} dias</span>
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                             @endforeach
                                         </div>
-                                    </li>                                   
-                                    
+                                    </li>
+
                                     <li class="nav-item dropdown">
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="{{route('peru')}}">
+                                                <a class="nav-link responsive dropdown-toggle"
+                                                    href="{{ route('peru') }}">
                                                     Pacotes Peru
                                                 </a>
-                                                <a class="nav-link mobile" href="{{route('peru')}}">
+                                                <a class="nav-link mobile" href="{{ route('peru') }}">
                                                     Pacotes Peru
                                                 </a>
                                             </div>
@@ -135,7 +167,12 @@
                                                 @foreach ($pacotes->categorias as $categoria)
                                                     @if ($categoria->nombre === 'Pacotes Peru')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('tours.show', ['id' => $pacotes->id, 'slug' => $pacotes->slug]) }}">{{ $pacotes->nombre }}</a>
+                                                            href="{{ route('tours.show', ['slug' => $pacotes->slug]) }}">
+                                                            {{ $pacotes->nombre }} <span
+                                                                style="color: #2493e0;font-weight: bold;
+                                                            font-size: 14px;">
+                                                                → {{ $pacotes->dias }} dias</span>
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                             @endforeach
@@ -144,10 +181,11 @@
                                     <li class="nav-item dropdown">
                                         <div class="row">
                                             <div class="col-6">
-                                                <a class="nav-link responsive dropdown-toggle" href="{{route('trilhas')}}">
+                                                <a class="nav-link responsive dropdown-toggle"
+                                                    href="{{ route('trilhas') }}">
                                                     Trilha Inca
                                                 </a>
-                                                <a class="nav-link mobile" href="{{route('trilhas')}}">
+                                                <a class="nav-link mobile" href="{{ route('trilhas') }}">
                                                     Trilha Inca
                                                 </a>
                                             </div>
@@ -162,32 +200,50 @@
                                                 @foreach ($trilha->categorias as $categoria)
                                                     @if ($categoria->nombre === 'Trilha Inca')
                                                         <a class="dropdown-item"
-                                                            href="{{ route('tours.show', ['id' => $trilha->id, 'slug' => $trilha->slug]) }}">{{ $trilha->nombre }}</a>
+                                                            href="{{ route('tours.show', ['slug' => $trilha->slug]) }}">
+                                                            {{ $trilha->nombre }}<span
+                                                                style="color: #2493e0;font-weight: bold;
+                                                            font-size: 14px;">
+                                                                → {{ $trilha->dias }} dias</span>
+                                                        </a>
                                                     @endif
                                                 @endforeach
-                                            @endforeach                                            
+                                            @endforeach
                                         </div>
-                                    </li>                                   
+                                    </li>
 
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                                     </li>
                                     <li class="nav-item navbar-collapse responsive">
-                                        <div class="input-group">
-                                            <input type="search" class="form-control form-control-sm"
-                                                placeholder="Search" aria-label="Search..."
-                                                aria-describedby="search-addon" />
-                                            <button type="button"
-                                                class="btn btn-sm btn-outline-primary">search</button>
-                                        </div>
+                                        <form action="{{ route('search') }}" method="get">
+                                            @csrf
+                                            <div class="input-group mb-3 mt-4">
+                                                <input type="search" id="name" name="name"
+                                                    class="form-control form-control-sm" placeholder="Procurar..."
+                                                    style="z-index:10" required>
+                                                <div class="input-group-append">
+                                                    <input type="submit" class="btn btn-sm btn-outline-primary"
+                                                        value="Ir">
+                                                </div>
+                                            </div>
+                                        </form>
                                     </li>
                                     <li class="nav-item mobile">
-                                        <div class="mb-3 d-flex align-items-center">
-                                            <input class="form-control form-control-sm" placeholder="Search" />
-                                            <span class="input-group-text border-0" id="search-addon">
-                                                <i class="fa fa-search"></i>
-                                            </span>
-                                        </div>
+                                        <form action="{{ route('search') }}" method="get">
+                                            @csrf
+                                            <div class="mb-3 d-flex align-items-center">
+                                                <input type="search" id="name" name="name"
+                                                    class="form-control form-control-sm" placeholder="Procurar..."
+                                                    style="z-index:10" required>
+                                                <div class="input-group-append">
+                                                    <span class="border-0">
+                                                        <input type="submit" value="Ir"
+                                                            style="background: #2493e0;border: 1px solid #2493e0;padding: 0.3em 0.6em; color:#fff">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
@@ -202,24 +258,42 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-sm-6 col-md-5">
-                    <div class="single-footer-widget">
+                    <div class="">
+                        <div class="row single-footer-widget">
+                            <div class="col-md-6">
+                                <img class="mb-4" width="80%"
+                                    src="{{ asset('img/logo-nc-travel-blanco.png') }}" alt="Logo NC Travel Cusco"
+                                    loading="lazy">
+                                <ul style="columns: 1">
+                                    <li><a href="{{ route('nosotros') }}"> Quem Somos</a></li>
+                                    <li><a href="{{ route('contato') }}"> Contato</a></li>
+                                    <li><a href="{{ route('faq') }}"> Perguntas frequentes</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>DESCUBRA O DESTINO</h4>
+                                <ul style="columns: 1">
+                                    @foreach ($destinos->take(6) as $destino)
+                                        <li><a
+                                                href="{{ route('destino.show', $destino->slug) }}">{{ $destino->nombre }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{--  
                         <h4>DESCUBRA O DESTINO</h4>
                         <ul>
-                            <li><a href="#">Cusco</a></li>
-                            <li><a href="#">Arequipa</a></li>
-                            <li><a href="#">Lima</a></li>
-                            <li><a href="#">Puno</a></li>
-                            <li><a href="#">Ica</a></li>
-                            <li><a href="#">Paracas</a></li>
-                            <li><a href="#">Puerto Maldonado</a></li>
-                            <li><a href="#">Choquequirao</a></li>
-                            <li><a href="#">Laguna Humantay</a></li>
-                            <li><a href="#">Trilha Inca</a></li>
-                            <li><a href="#">Montanha Vinicunca</a></li>
-                            <li><a href="#">Lagoa Piuray</a></li>
+                            @foreach ($destinos->take(6) as $destino)
+                                <li><a href="{{ route('destino.show', $destino->slug) }}">{{ $destino->nombre }}</a></li>
+                            @endforeach
+                            @foreach ($tours->take(6) as $tour)
+                                <li><a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">{{ $tour->nombre }}</a></li>
+                            @endforeach
                         </ul>
-
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="single-footer-widget">
@@ -252,10 +326,16 @@
                         <p>San Andres N° 240 of. 201, Cusco - Peru</p>
                         <span>niko@nctravelcusco.com</span>
                         <div class="social-icons">
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"><i class="ti-twitter-alt"></i></a>
-                            <a href="#"><i class="ti-pinterest"></i></a>
-                            <a href="#"><i class="ti-instagram"></i></a>
+                            <a href="https://www.facebook.com/MachupicchuCusco" target="_blank"><i
+                                    class="fa fa-facebook"></i></a>
+                            <a href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d6886235-Reviews-Nc_Travel_Cusco-Cusco_Cusco_Region.html"
+                                target="_blank"><i class="fa fa-tripadvisor"></i></a>
+                            <a href="https://www.instagram.com/nctravelcusco_oficial/" target="_blank"><i
+                                    class="fa fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/channel/UCBJP3DFKGpcsRnjjTnrf5pA" target="_blank"><i
+                                    class="fa fa-youtube"></i></a>
+                            <a href="https://www.pinterest.es/nctravelcusco/" target="_blank"><i
+                                    class="ti-pinterest"></i></a>
                         </div>
                     </div>
                 </div>

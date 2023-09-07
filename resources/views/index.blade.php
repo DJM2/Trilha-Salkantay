@@ -142,7 +142,7 @@
             </div>
         </div>
     </section>
-    <section class="top_place mt-5">
+    <section class="top_place mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
@@ -155,32 +155,30 @@
             </div>
             <div class="row">
                 @foreach ($tours as $tour)
-                    
-                        <div class="col-lg-6 col-md-6">
-                            <div class="single_place">
-                                <img src="../img/buscador/{{ $tour->img }}" alt="{{ $tour->nombre }}" loading="lazy">
-                                <div class="hover_Text d-flex align-items-end justify-content-between">
-                                    <div class="hover_text_iner">
-                                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
-                                            class="place_btn">Ver tour</a>
-                                        <h3>{{ $tour->nombre }}</h3>
-                                        <p>{{ $tour->descripcion }}</p>
-                                        <div class="row iconos-tours mt-3">
-                                            <div class="col-4" style="float: left">
-                                                <span class="fa fa-clock-o"> {{ $tour->dias }} días</span>
-                                            </div>
-                                            <div class="col-4" style="float:right">
-                                                <span class="fa fa-map-marker"> {{ $tour->ubicacion }}</span>
-                                            </div>
-                                            <div class="col-4" style="float:right">
-                                                <span class="fa fa-usd"><strong>{{ $tour->precio }}.00</strong></span>
-                                            </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single_place">
+                            <img src="../img/buscador/{{ $tour->img }}" alt="{{ $tour->nombre }}" loading="lazy">
+                            <div class="hover_Text d-flex align-items-end justify-content-between">
+                                <div class="hover_text_iner">
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="place_btn">Ver
+                                        tour</a>
+                                    <h3>{{ $tour->nombre }}</h3>
+                                    <p>{{ $tour->descripcion }}</p>
+                                    <div class="row iconos-tours mt-3">
+                                        <div class="col-4" style="float: left">
+                                            <span class="fa fa-clock-o"> {{ $tour->dias }} días</span>
+                                        </div>
+                                        <div class="col-4" style="float:right">
+                                            <span class="fa fa-map-marker"> {{ $tour->ubicacion }}</span>
+                                        </div>
+                                        <div class="col-4" style="float:right">
+                                            <span class="fa fa-usd"><strong>{{ $tour->precio }}.00</strong></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -244,90 +242,57 @@
                         <div class="row">
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
-                                    <img src="{{ asset('img/Santuary-Lodge-Machu-Picchu.webp') }}" alt="">
-                                    <div class="hover_text">
-                                        <div class="hotel_social_icon">
-                                            <ul>
-                                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="share_icon">
-                                            <i class="ti-share"></i>
-                                        </div>
-                                    </div>
+                                    <img src="{{ asset('img/Santuary-Lodge-Machu-Picchu.webp') }}"
+                                        alt="Santuary Lodge Machu Picchu" loading="lazy">
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Santuary Lodge Machu Pichhu</a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://www.belmond.com/hotels/south-america/peru/machu-picchu/belmond-sanctuary-lodge/"
+                                                target="_blank" rel="nofollow">Santuary
+                                                Lodge Machu Pichhu</a></h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Aguas calientes, Machu Picchu</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
-                                    <img src="{{ asset('img/Belmond-Palacio-Nazarenas-Cusco.webp') }}" alt="">
-                                    <div class="hover_text">
-                                        <div class="hotel_social_icon">
-                                            <ul>
-                                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="share_icon">
-                                            <i class="ti-share"></i>
-                                        </div>
-                                    </div>
+                                    <img src="{{ asset('img/Belmond-Palacio-Nazarenas-Cusco.webp') }}"
+                                        alt="Belmond Palacio Nazaneras Cusco" loading="lazy">
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Palacio Nazarenas Cusco</a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://www.belmond.com/es/hotels/south-america/peru/cusco/belmond-palacio-nazarenas/"
+                                                rel="nofollow" target="_blank">Palacio Nazarenas Cusco</a>
+                                        </h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Cusco, Cusco</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
-                                    <img src="{{ asset('img/Inkaterra-Hacienda-Urubamba.webp') }}" alt="">
-                                    <div class="hover_text">
-                                        <div class="hover_text">
-                                            <div class="hotel_social_icon">
-                                                <ul>
-                                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                    <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="share_icon">
-                                                <i class="ti-share"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <img src="{{ asset('img/Inkaterra-Hacienda-Urubamba.webp') }}"
+                                        alt="Inakterra Hacienda Urubamba" loading="lazy">
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Inkaterra Hacienda Urubamba</a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://www.inkaterra.com/es/inkaterra/inkaterra-hacienda-urubamba/la-experiencia/"
+                                                target="_blank" rel="nofollow">Inkaterra Hacienda Urubamba</a></h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Cusco, Urubamba</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -338,67 +303,44 @@
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
                                     <img src="{{ asset('img/Hotel-Aranwa-Vale-Sagrado-dos-Incas.webp') }}"
-                                        alt="">
-                                    <div class="hover_text">
-                                        <div class="hotel_social_icon">
-                                            <ul>
-                                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="share_icon">
-                                            <i class="ti-share"></i>
-                                        </div>
-                                    </div>
+                                        alt="Hotel Aranwa" loading="lazy">
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Hotel Aranwa Vale Sagrado dos Incas</a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://aranwahotels.com/" target="_blank" rel="nofollow">Hotel
+                                                Aranwa Vale Sagrado dos Incas</a></h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Cusco, Urubamba</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
                                     <img src="{{ asset('img/Inkaterra-Pueblo-Hotel-Aguas-Calientes.webp') }}"
-                                        alt="">
-                                    <div class="hover_text">
-                                        <div class="hotel_social_icon">
-                                            <ul>
-                                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="share_icon">
-                                            <i class="ti-share"></i>
-                                        </div>
-                                    </div>
+                                        alt="Inakterra Pueblo Hotel" loading="lazy">
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Inkaterra Pueblo Hotel</a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://www.inkaterra.com/inkaterra/inkaterra-machu-picchu-pueblo-hotel/the-experience/"
+                                                target="_blank" rel="nofollow">Inkaterra Pueblo Hotel</a></h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Cusco, Cusco</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-sm-6">
                                 <div class="single_ihotel_list">
-                                    <img src="{{ asset('img/Casa-andina-premium-Valle-Sagrado.webp') }}" alt="">
-                                    <div class="hover_text">
+                                    <img src="{{ asset('img/Casa-andina-premium-Valle-Sagrado.webp') }}"
+                                        alt="Casa Andina Premium Valle Sagrado" loading="lazy">
+                                    {{-- <div class="hover_text">
                                         <div class="hotel_social_icon">
                                             <ul>
                                                 <li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -409,18 +351,19 @@
                                         <div class="share_icon">
                                             <i class="ti-share"></i>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="hotel_text_iner">
-                                        <h3> <a href="#">Casa Andina Premium </a></h3>
-                                        <div class="place_review">
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
-                                            <a href="#"><i class="fa fa-star"></i></a>
+                                        <h3> <a href="https://www.casa-andina.com/es/destinos/valle-sagrado/hoteles/casa-andina-premium-valle-sagrado-hotel-&-villas"
+                                                rel="nofollow" target="_blank">Casa Andina Premium </a>
+                                        </h3>
+                                        <div class="place_review" style="color: #ffe70b">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
                                         </div>
                                         <p>Cusco, Cusco</p>
-                                        <h5>From <span>$500</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -579,29 +522,43 @@
             <div class="row">
                 <div class="col-lg-3 col-6">
                     <div class="destinos">
-                        <img src="{{asset('img/galeria/Machu-Picchu-Peru-Cusco.webp')}}" alt="">
-                        <h3> <a href="#"> Cusco</a></h3>
+                        <a href="https://www.trilhasalkantay.com/destino-Peru/ciudade-de-Cusco" target="_blank">
+                            <img src="{{ asset('img/galeria/Machu-Picchu-Peru-Cusco.webp') }}" alt="Cusco"
+                                loading="lazy">
+                        </a>
+                        <h3> <a href="https://www.trilhasalkantay.com/destino-Peru/ciudade-de-Cusco" target="_blank">
+                                Cusco</a></h3>
                         <p>Trilha Inca, Choquequirao, Machu Picchu, Cusco.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="destinos">
-                        <img src="{{asset('img/galeria/Lima-cidade-Peru.webp')}}" alt="">
-                        <h3> <a href="#"> Lima</a></h3>
+                        <a href="https://www.trilhasalkantay.com/destino-Peru/Cidade-de-Lima-Peru" target="_blank">
+                            <img src="{{ asset('img/galeria/Lima-cidade-Peru.webp') }}" alt="Lima" loading="lazy">
+                        </a>
+                        <h3> <a href="https://www.trilhasalkantay.com/destino-Peru/Cidade-de-Lima-Peru" target="_blank">
+                                Lima</a></h3>
                         <p>Huacca Pucllana, Miraflores, Catacumbas</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="destinos">
-                        <img src="{{asset('img/galeria/Puno-cidade-Peru.webp')}}" alt="">
-                        <h3> <a href="#"> Puno</a></h3>
+                        <a href="https://www.trilhasalkantay.com/destino-Peru/Ciudade-de-Puno" target="_blank">
+                            <img src="{{ asset('img/galeria/Puno-cidade-Peru.webp') }}" alt="Puno" loading="lazy">
+                        </a>
+                        <h3> <a href="https://www.trilhasalkantay.com/destino-Peru/Ciudade-de-Puno" target="_blank">
+                                Puno</a></h3>
                         <p>Lago Titicaca, Ilha de Uros, Ayaviri</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="destinos">
-                        <img src="{{asset('img/galeria/Arequipa-cidade-Peru.webp')}}" alt="">
-                        <h3> <a href="#"> Arequipa</a></h3>
+                        <a href="https://www.trilhasalkantay.com/destino-Peru/Cidade-de-Arequipa-Peru" target="_blank">
+                            <img src="{{ asset('img/galeria/Arequipa-cidade-Peru.webp') }}" alt="Arequipa"
+                                loading="lazy">
+                        </a>
+                        <h3> <a href="https://www.trilhasalkantay.com/destino-Peru/Cidade-de-Arequipa-Peru"
+                                target="_blank"> Arequipa</a></h3>
                         <p>Vulcão Misti, Mosteiro de Santa Catalina, Rota Sillar</p>
                     </div>
                 </div>

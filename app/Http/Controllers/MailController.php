@@ -10,15 +10,32 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function getMail()
+    public function getMail(Request $request)
     {
         $datos = request()->all();
-        Mail::send("emails.contacto", $datos, function ($message) use ($datos) {
-            $message->from($datos['email'], $datos['nombre'])
-                ->to('niko@nctravelcusco.com', 'DJM2')
-                ->subject('Formulario desde Trilha Inca Cuzco web.');
+        if (!empty($request->input('verificar'))) {
+            return abort(403, 'Lo sentimos, parece que eres un robot. Tu IP ha sido bloqueada.');
+        }
+        $correo = $datos['correo'];
+        Mail::send("emails.contacto", $datos, function ($message) use ($datos, $correo) {
+            $message->from($correo, $datos['nombre'])
+                ->to('niko@nctravelcusco.com', 'NC Travel Cusco')
+                ->subject('Formulario desde Trilha Salkantay web.');
         });
         session()->flash('status', 'Mensagem enviada com sucesso!');
         return back();
     }
 }
+
+/*  public function getMail(Request $request)    {
+        $datos = request()->all();
+        $correo = $datos['correo'];
+        Mail::send("emails.contacto", $datos, function ($message) use ($datos, $correo) {
+            $message->from($correo, $datos['nombre'])
+                ->to('mirandadjmdjm@gmail.com', 'DJM2')
+                ->subject('Formulario desde Trilha Salkantay web.');
+        });
+        session()->flash('status', 'Mensagem enviada com sucesso!');
+        return back(); 
+          }
+}*/

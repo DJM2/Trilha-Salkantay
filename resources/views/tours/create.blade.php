@@ -54,7 +54,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-12 mt-3">
-                        <label for="resumen" class="form-label">Roteiro:</label>
+                        <label for="resumen" class="form-label">Resumen del tour:</label>
                         <textarea class="ckeditor form-control" name="resumen" id="resumen"></textarea>
                         </textarea>
                         @error('resumen')
@@ -62,7 +62,7 @@
                         @enderror
                     </div>
                     <div class="col-lg-12  mt-3">
-                        <label for="detallado" class="form-label">Precos:</label>
+                        <label for="detallado" class="form-label">Itinerario del Tour:</label>
                         <textarea class="ckeditor form-control" name="detallado" id="detallado"></textarea>
                         </textarea>
                         @error('detallado')
@@ -125,7 +125,7 @@
                         <label for="" class="form-label">Clase:<small class="text-success">(Tomada para definir
                                 img)</small></label>
                         <select name="clase" id="clase" class="form-control">
-                            <option value="cusconoche" data-class="cusconoche">Cusco noche</option>
+                            <option value="cusconoche" data-class="cusconoche">Cusco ciudad</option>
                             <option value="puno" data-class="puno">Isla uros</option>
                             <option value="lima1" data-class="lima1">Parque de las aguas</option>
                             <option value="ballestas" data-class="ballestas">Islas Ballestas</option>
@@ -133,10 +133,12 @@
                             <option value="mapi1" data-class="mapi1">Machu Picchu</option>
                             <option value="mapi2" data-class="mapi2">Machu Picchu 2</option>
                             <option value="caminoinca" data-class="caminoinca">Camino Inca</option>
+                            <option value="caminoinca2" data-class="caminoinca2">Camino Inca 2</option>
                             <option value="sacse" data-class="sacse">Sacsayhuaman</option>
                             <option value="valle" data-class="valle">Valle Sagrado de los incas</option>
                             <option value="valle2" data-class="valle2">Valle Sagrado de los incas 2</option>
                             <option value="salkantay" data-class="salkantay">Salkantay</option>
+                            <option value="salkantay2" data-class="salkantay2">Salkantay 2</option>
                             <option value="choque" data-class="choque">Choquequirao</option>
                             <option value="vinicunca" data-class="vinicunca">Vinicunca</option>
                             <option value="humantay" data-class="humantay">Humantay</option>

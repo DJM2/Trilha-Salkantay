@@ -31,7 +31,9 @@
         <div class="container mt-5 mb-5">
             <div class="row">
                 <div class="col-lg-12">
-                    {!! $destino->descripcion !!}
+                    <div style="text-align: justify" class="contenidoDestinos">
+                        {!! $destino->descripcion !!}
+                    </div>
                     <div class="share mt-4">
                         <h3 class="mb-4">Compartir: </h3>
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request()->fullUrl() }}" target="_blank"
@@ -42,11 +44,12 @@
                             rel="nofollow noopener noreferrer" target="_blank" rel="noopener" class="btn-social">
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener" class="btn-social">
+                        <a href="https://wa.me/?text={{ request()->fullUrl() }}" target="_blank" rel="noopener"
+                            class="btn-social">
                             <i class="fa fa-whatsapp"></i>
                         </a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request()->fullUrl() }}" target="_blank"
-                            rel="noopener" class="btn-social">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request()->fullUrl() }}"
+                            target="_blank" rel="noopener" class="btn-social">
                             <i class="fa fa-linkedin"></i>
                         </a>
                         <a href="https://www.pinterest.com/pin/create/button/?url={{ request()->fullUrl() }}"

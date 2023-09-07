@@ -26,9 +26,10 @@ Route::get('pacotes-trilha-inca', [EnlacesCategorias::class, 'trilhas'])->name('
 Route::get('rotas-alternativas-e-caminha', [EnlacesCategorias::class, 'alternativas'])->name('alternativas');
 Route::get('quem-somos', [EnlacesCategorias::class, 'nosotros'])->name('nosotros');
 Route::get('contato', [EnlacesCategorias::class, 'contato'])->name('contato');
-Route::get('reserva', [EnlacesCategorias::class, 'reserva'])->name('reserva');
+Route::get('perguntas-frequentes',[EnlacesCategorias::class, 'faq'])->name('faq');
+/* Route::get('reserva', [EnlacesCategorias::class, 'reserva'])->name('reserva'); */
 Route::get('condicoes-gerais', [EnlacesCategorias::class, 'condicoes'])->name('condicoes');
-Route::get('pagamentos', [EnlacesCategorias::class, 'pagamentos'])->name('pagamentos');
+/* Route::get('pagamentos', [EnlacesCategorias::class, 'pagamentos'])->name('pagamentos'); */
 Route::get('destino-Peru/{slug}', [DestinoController::class, 'show'])->name('destino.show');
 Route::get('destinos', [DestinoController::class, 'lista'])->name('destinosLista');
 

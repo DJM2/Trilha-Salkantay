@@ -24,9 +24,9 @@
                 <!-----Fin orueba--->
                 @foreach ($tours as $tour)
                    @if ($tour->categoria=='luxury')
-                   <div class="col-lg-3 col-md-6">
+                   <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card card-new" style="width: 18rem;">
-                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
                            <div class="img-container">
                             <img class="card-img-top" src="../img/buscador/{{ $tour->img }}" alt="Camino Inca 4 dias"
                             loading="lazy">
@@ -47,7 +47,7 @@
                                 </div>
 
                             </div>
-                            <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}"
+                            <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}"
                                 class="boton-card">Más Info</a>
 
                         </div>

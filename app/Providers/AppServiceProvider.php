@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $destinos = Destino::all();
         view()->share('destinos', $destinos);
-        $tours = Tour::all();
+        $tours = Tour::orderBy('dias', 'asc')->get();
         view()->share('tours', $tours);
 
         /* $footerText = FooterText::first();

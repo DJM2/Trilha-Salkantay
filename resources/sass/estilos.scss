@@ -488,13 +488,44 @@ $yellow: #ffc962;
         color: #fff;
         text-shadow: -2px -2px #525252;
         font-size: 18px;
-    }    
+    }
+}
+
+.contenidoDestinos {
+    h2 {
+        margin-top: 0.6em;
+        position: relative;
+        font-weight: bold;
+        padding-bottom: 0.2em;
+
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: $secundario;
+        }
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 22px;
+        margin-top: 0.8em;
+    }
+
+    ul {
+        li {
+            list-style: inside;
+        }
+    }
 }
 
 .img-container {
     img {
         width: 100%;
-        height: 190px;
+        height: 240px;
         object-fit: cover;
     }
 
@@ -505,21 +536,24 @@ $yellow: #ffc962;
     .btn2 {
         background: #2493e0;
         color: #fff;
-        padding: 5px 15px;
+        padding: 10px 20px;
         font-size: 13px;
         transition: 0.5s ease;
         margin-top: 1em;
-        &:hover{
+
+        &:hover {
             background: $secundario;
             transition: 0.5s ease;
         }
     }
-    .iconos-tours{
+
+    .iconos-tours {
         margin-top: 1em;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
         padding-bottom: 1em;
         border-bottom: 1px dashed $secundario;
-        span{
+
+        span {
             color: $secundario;
         }
     }
@@ -539,6 +573,36 @@ $yellow: #ffc962;
             font-size: 22px;
             color: $principal2;
         }
+    }
+}
+.preguntas{
+    .accordion-header{
+        margin-bottom: 0em;
+    }
+    .accordion-button{
+        width: 100%;
+        background: $principal2;
+        color: #fff;
+        font-size: 14px;
+        border:none;
+    }
+    .accordion-collapse{
+        padding: 1em;
+    background: #f1f1f152;
+    text-align: justify;
+    }
+}
+.loggeado {
+    background: $secundario;
+    color: #fff;
+    padding: 1em;
+    position: fixed;
+    bottom: 50vh;
+    margin-left: -5em;
+    &:hover {
+        margin-left: 0em;
+        background: $principal2;
+        color: #fff;
     }
 }
 
@@ -655,7 +719,7 @@ $yellow: #ffc962;
     }
 
     .boton-card {
-        background: $principal2;
+        background: $principal;
         padding: 0.5em 0.8em;
         border-radius: 6px;
         color: #fff;
@@ -855,7 +919,7 @@ $yellow: #ffc962;
 .cusconoche {
     height: 50vh;
     width: 100%;
-    background-image: url(../img/panoramico/Ciudad-de-Cusco-noite.webp);
+    background-image: url(../img/panoramico/Cusco-ciudade.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -905,6 +969,14 @@ $yellow: #ffc962;
     background-size: cover;
     background-position: center center;
 }
+.caminoinca2 {
+    height: 50vh;
+    width: 100%;
+    background-image: url(../img/panoramico/trilha-inca-classica.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
 
 .sacse {
     height: 50vh;
@@ -918,7 +990,7 @@ $yellow: #ffc962;
 .valle {
     height: 50vh;
     width: 100%;
-    background-image: url(../img/panoramico/vale-sagrado-dos-incas.webp);
+    background-image: url(../img/panoramico/Moray-vale-sagrado-Cusco.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -927,7 +999,7 @@ $yellow: #ffc962;
 .valle2 {
     height: 50vh;
     width: 100%;
-    background-image: url(../img/panoramico/Vale-sagrado-dos-incas-mc-travel.webp);
+    background-image: url(../img/panoramico/cusco-maras-salt-mines-inca-moray.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -940,7 +1012,14 @@ $yellow: #ffc962;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-
+}
+.salkantay2 {
+    height: 50vh;
+    width: 100%;
+    background-image: url(../img/panoramico/salkantay-trey.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .choque {
@@ -998,6 +1077,7 @@ $yellow: #ffc962;
     background-size: cover;
     background-position: center center;
 }
+
 .trilhas {
     height: 50vh;
     width: 100%;
@@ -1006,6 +1086,7 @@ $yellow: #ffc962;
     background-size: cover;
     background-position: center center;
 }
+
 .pacotesPeru {
     height: 50vh;
     width: 100%;
@@ -1024,13 +1105,25 @@ $yellow: #ffc962;
     .mobile {
         display: block;
     }
-    .destinosh1{
-        h1{
+
+    .destinosh1 {
+        h1 {
             font-size: 26px;
             padding-bottom: 5px;
         }
-        p{
+
+        p {
             font-size: 15px;
+        }
+    }
+    .blog-head{
+        h1{
+            font-size:25px;
+        }
+    }
+    .texTours{
+        .h1tours{
+            font-size: 28px;
         }
     }
 }

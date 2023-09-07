@@ -41,7 +41,7 @@
                 <div class="col-lg-12 mb-4">
                     <h2>Destinos turísticos do Peru:</h2>
                 </div>
-                @foreach ($destinos as $destino)
+                @foreach ($destinosPeru as $destino)
                     <div class="col-lg-6 col-md-6">
                         <div class="single_place">
                             <img src="{{ asset('img/destinos/thumb/' . $destino->imgThumb) }}" alt="{{ $destino->nombre }}"

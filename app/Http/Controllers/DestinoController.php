@@ -16,9 +16,6 @@ class DestinoController extends Controller
     public function index()
     {
         $destinos = Destino::all();
-        /* foreach ($destinos as $destino) {
-            $destino->descripcion = Str::words($destino->descripcion, 40, '...');
-        } */
         return view('destinos.en.index', compact('destinos'));
     }
 
@@ -132,8 +129,10 @@ class DestinoController extends Controller
     }
     public function lista()
     {
-        
-        return view('destinos.en.lista');
+        $destinosPeru = Destino::orderBy('created_at', 'desc')
+                   ->orderBy('updated_at', 'desc')
+                   ->get();
+        return view('destinos.en.lista', compact('destinosPeru'));
     }
     /**
      * Remove the specified resource from storage.

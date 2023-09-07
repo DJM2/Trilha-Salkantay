@@ -35,9 +35,9 @@
                 @foreach ($tours as $tour)
                     @foreach ($tour->categorias as $categoria)
                         @if ($categoria->nombre === 'Machu Picchu')
-                            <div class="col-lg-4 col-md-6 img-container">
+                            <div class="col-lg-4 col-md-6 img-container mb-4">
                                 <div class="card card-new">
-                                    <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}">
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
                                         <div class="">
                                             <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
                                                 alt="Camino Inca 4 dias" loading="lazy">
@@ -57,7 +57,7 @@
                                                 <span class="fa fa-usd"></span> <strong>{{ $tour->precio }}</strong>
                                             </div>
                                         </div>
-                                        <a href="{{ route('tours.show', ['id' => $tour->id, 'slug' => $tour->slug]) }}" class="btn2">Más
+                                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="btn2">Más
                                             Info</a>
 
                                     </div>

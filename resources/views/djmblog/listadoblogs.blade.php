@@ -82,9 +82,9 @@
             @foreach ($blogs as $blog)
                 <div class="col-lg-3 col-md-6 blog-container">
                     <div class="card card-new mx-auto" style="width: 18rem;">
-                        <a href="{{ route('muestrame', ['id' => $blog->id, 'slug' => $blog->slug]) }}">
+                        <a href="{{ route('muestrame', ['slug' => $blog->slug]) }}">
                             <div class="img-container">
-                                <img class="card-img-top" src="{{ $blog->img }}" alt="{{ $blog->nombre }}"
+                                <img class="card-img-top" src="{{ $blog->imgThumb }}" alt="{{ $blog->nombre }}"
                                     loading="lazy">
                             </div>
                         </a>

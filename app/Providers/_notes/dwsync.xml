@@ -5,4 +5,5 @@
 <file name="BroadcastServiceProvider.php" server="ftp.happyperutours.com" local="133129126980000000" remote="133148178000000000" Dst="0" />
 <file name="EventServiceProvider.php" server="ftp.happyperutours.com" local="133129126980000000" remote="133148178000000000" Dst="0" />
 <file name="RouteServiceProvider.php" server="ftp.happyperutours.com" local="133129126980000000" remote="133148178000000000" Dst="0" />
+<file name="AppServiceProvider.php" server="199.103.62.205" local="133380584079552453" remote="133380764400000000" Dst="0" />
 </dwsync>

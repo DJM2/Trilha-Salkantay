@@ -31,7 +31,7 @@ class EnlacesCategorias extends Controller
     {
         return view('tours.contato');
     }
-    public function reserva()
+    public function faq()
     {
         return view('tours.reserva');
     }

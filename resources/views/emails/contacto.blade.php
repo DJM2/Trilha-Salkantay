@@ -14,17 +14,16 @@
 </head>
 
 <body>
-    <h4>Correo enviado desde la página web Trilha Inca Cusco</h4>
+    <h4>Correo enviado desde la página web Trilha Salkantay</h4>
     <table class="table table-hover" style="text-align: left">
         <tbody>
             <tr>
                 <th scope="row">Nombre:</th>
                 <td>{{ $nombre }}</td>
-
             </tr>
             <tr>
                 <th scope="row">Email:</th>
-                <td>{{ $email }}</td>
+                <td>{{ $correo }}</td>
 
             </tr>
             <tr>

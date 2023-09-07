@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('contenido')
-    <div class="noresults">
+    <div class="blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3 style="padding-top: 30vh;color:#fff">Nenhum resultado foi encontrado em sua pesquisa</h3>
+                <div class="col-lg-12 destinosh1">
+                    <h1 style="font-size: 2rem">Nenhum resultado foi encontrado em sua pesquisa</h1>
                 </div>
                 <div class="col-lg-12 text-center mt-2">
                     <h5 style="color:#fff">Nova pesquisa:</h5>
