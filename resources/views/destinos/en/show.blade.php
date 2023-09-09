@@ -61,4 +61,51 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="mb-4 mt-4">Passeios em {{$destino->nombre}}</h2>
+                </div>
+                @foreach ($toursRelacionados as $tour)
+                    @php
+                        $ubicaciones = preg_split('/\s*-\s*/', strtolower($tour->ubicacion));
+                        $nombreDestino = strtolower($destino->nombre);
+                    @endphp
+                    @foreach ($ubicaciones as $ubicacion)
+                        @if (trim($ubicacion) === $nombreDestino)
+                            <div class="col-lg-4 col-md-6 img-container mb-4">
+                                <div class="card card-new">
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
+                                        <div class="">
+                                            <img class="card-img-top" src="../img/buscador/{{ $tour->img }}"
+                                                alt="Camino Inca 4 dias" loading="lazy">
+                                        </div>
+                                    </a>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $tour->nombre }}</h5>
+                                        <p class="text-card">{{ $tour->descripcion }}</p>
+                                        <div class="row iconos-tours">
+                                            <div class="col-4" style="float: left">
+                                                <span class="fa fa-clock-o"></span> {{ $tour->dias }} días
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-map-marker"></span> {{ $tour->ubicacion }}
+                                            </div>
+                                            <div class="col-4" style="float:right">
+                                                <span class="fa fa-usd"></span> <strong>{{ $tour->precio }}</strong>
+                                            </div>
+                                        </div>
+                                        <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="btn2">Más
+                                            Info</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection

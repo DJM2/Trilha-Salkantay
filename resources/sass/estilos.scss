@@ -575,23 +575,27 @@ $yellow: #ffc962;
         }
     }
 }
-.preguntas{
-    .accordion-header{
+
+.preguntas {
+    .accordion-header {
         margin-bottom: 0em;
     }
-    .accordion-button{
+
+    .accordion-button {
         width: 100%;
         background: $principal2;
         color: #fff;
         font-size: 14px;
-        border:none;
+        border: none;
     }
-    .accordion-collapse{
+
+    .accordion-collapse {
         padding: 1em;
-    background: #f1f1f152;
-    text-align: justify;
+        background: #f1f1f152;
+        text-align: justify;
     }
 }
+
 .loggeado {
     background: $secundario;
     color: #fff;
@@ -599,6 +603,7 @@ $yellow: #ffc962;
     position: fixed;
     bottom: 50vh;
     margin-left: -5em;
+
     &:hover {
         margin-left: 0em;
         background: $principal2;
@@ -969,6 +974,7 @@ $yellow: #ffc962;
     background-size: cover;
     background-position: center center;
 }
+
 .caminoinca2 {
     height: 50vh;
     width: 100%;
@@ -1013,6 +1019,7 @@ $yellow: #ffc962;
     background-size: cover;
     background-position: center center;
 }
+
 .salkantay2 {
     height: 50vh;
     width: 100%;
@@ -1116,14 +1123,26 @@ $yellow: #ffc962;
             font-size: 15px;
         }
     }
-    .blog-head{
-        h1{
-            font-size:25px;
+
+    .blog-head {
+        h1 {
+            font-size: 25px;
         }
     }
-    .texTours{
-        .h1tours{
+
+    .texTours {
+        .h1tours {
             font-size: 28px;
+        }
+    }
+
+    .contenidoDestinos {
+        h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        h3{
+            font-size: 20px;
         }
     }
 }

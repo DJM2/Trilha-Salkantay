@@ -30,7 +30,9 @@ Route::get('perguntas-frequentes',[EnlacesCategorias::class, 'faq'])->name('faq'
 /* Route::get('reserva', [EnlacesCategorias::class, 'reserva'])->name('reserva'); */
 Route::get('condicoes-gerais', [EnlacesCategorias::class, 'condicoes'])->name('condicoes');
 /* Route::get('pagamentos', [EnlacesCategorias::class, 'pagamentos'])->name('pagamentos'); */
-Route::get('destino-Peru/{slug}', [DestinoController::class, 'show'])->name('destino.show');
+/* Route::get('destino-Peru/{slug}', [DestinoController::class, 'show'])->name('destino.show'); */
+Route::get('/destino-Peru/{slug}', [DestinoController::class, 'show'])->name('destino.show');
+
 Route::get('destinos', [DestinoController::class, 'lista'])->name('destinosLista');
 
 //blogs

@@ -104,7 +104,7 @@
                         <div class="tab-pane fade show active cuerpoImgs" id="roteiro" role="tabpanel"
                             aria-labelledby="roteiro-tab">
                             {!! $tour->resumen !!}</div>
-                        <div class="tab-pane fade cuerpoImgs" id="precos" role="tabpanel"
+                        <div class="tab-pane fade cuerpoImgs contenidoDestinos" id="precos" role="tabpanel"
                             aria-labelledby="precose-tab">
                             {!! $tour->detallado !!}
                         </div>

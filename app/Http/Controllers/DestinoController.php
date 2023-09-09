@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destino;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -122,16 +123,24 @@ class DestinoController extends Controller
 
         return redirect()->route('destinos.index')->with('success', 'Destino actualizado correctamente');
     }
-    public function show($slug)
+    /* public function show($slug)
     {
         $destino = Destino::where('slug', $slug)->firstOrFail();
         return view('destinos.en.show', compact('destino'));
+    } */
+    public function show($slug)
+    {       
+        $destino = Destino::where('slug', $slug)->firstOrFail();
+        $toursRelacionados=Tour::all();
+        return view('destinos.en.show', compact('destino', 'toursRelacionados'));
     }
+
+
     public function lista()
     {
         $destinosPeru = Destino::orderBy('created_at', 'desc')
-                   ->orderBy('updated_at', 'desc')
-                   ->get();
+            ->orderBy('updated_at', 'desc')
+            ->get();
         return view('destinos.en.lista', compact('destinosPeru'));
     }
     /**

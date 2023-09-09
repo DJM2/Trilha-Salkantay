@@ -8,4 +8,6 @@
 <file name="create.blade.php" server="15.235.54.105" local="133156042937016872" remote="133271961000000000" Dst="0" />
 <file name="edit.blade.php" server="15.235.54.105" local="133156668650379183" remote="133271961000000000" Dst="0" />
 <file name="show.blade.php" server="15.235.54.105" local="133155997105114279" remote="133155996600000000" Dst="0" />
+<file name="create.blade.php" server="199.103.62.205" local="133385754898898111" remote="133385943000000000" Dst="0" />
+<file name="edit.blade.php" server="199.103.62.205" local="133385756885738013" remote="133385943000000000" Dst="0" />
 </dwsync>

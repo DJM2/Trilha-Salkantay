@@ -4,8 +4,8 @@
     <meta name="keywords" content="{{ $blog->keywords }}" />
     <meta name="description" content="{{ $blog->descripcion }}">
     <link rel="canonical" href="{{ request()->fullUrl() }}" />
-    <meta property="og:image" content="{{ $blog->img }}" />
-    <meta property="og:image:secure_url" content="{{ $blog->img }}" />
+    <meta property="og:image" content="{{asset( $blog->img) }}" />
+    <meta property="og:image:secure_url" content="{{asset( $blog->img) }}" />
     <meta property="og:title" content="{{ $blog->nombre }}" />
     <meta property="og:description" content="{{ $blog->descripcion }}" />
     <meta property="og:locale" content="es" />

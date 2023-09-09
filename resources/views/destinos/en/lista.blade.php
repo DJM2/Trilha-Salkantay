@@ -50,6 +50,7 @@
                             <div class="hover_Text d-flex align-items-end justify-content-between">
                                 <div class="hover_text_iner">
                                     <h2>{{ $destino->nombre }}</h2>
+                                    {{-- <a href="{{ route('destino.show', $destino->slug) }}" class="place_btn">Veja o destino</a> --}}
                                     <a href="{{ route('destino.show', $destino->slug) }}" class="place_btn">Veja o destino</a>
                                 </div>
                             </div>

@@ -985,6 +985,13 @@
   .texTours .h1tours {
     font-size: 28px;
   }
+  .contenidoDestinos h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .contenidoDestinos h3 {
+    font-size: 20px;
+  }
 }
 
 /*# sourceMappingURL=estilos.css.map */
