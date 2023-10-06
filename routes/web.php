@@ -42,6 +42,7 @@ Route::get('tag/{slug}', [BuscadoreController::class, 'show'])->name('tag');
 
 // Mensajes
 Route::post('mensajeNc', [MailController::class, 'getMail'])->name('mensaje');
+Route::post('form-index', [MailController::class, 'formIndex'])->name('form-index');
 
 // Páginas de inicio
 Route::get('/', [TourController::class, 'mostrar'])->name('index');

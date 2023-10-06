@@ -100,7 +100,8 @@
                     </div>
                     <div class="col-lg-6 mt-3">
                         <label for="mapa" class="form-label">Mapa del tour:</label>
-                        <input type="file" id="mapa" name="mapa" class="form-control" accept="image/*">
+                        {{-- <input type="file" id="mapa" name="mapa" class="form-control" accept="image/*"> --}}
+                        <textarea class="ckeditor form-control" name="mapa" id="mapa"></textarea>
                     </div>
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">

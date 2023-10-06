@@ -86,7 +86,9 @@ class TourController extends Controller
         $img->move($rutaImg, $imgTour);
         $tour['img'] = "$imgTour";
 
-        if ($request->hasFile('mapa')) {
+        $tour->mapa=$request->get('mapa');
+
+        /* if ($request->hasFile('mapa')) {
             $rutaMapa = public_path("img/buscador/");
             $mapa = $request->file('mapa');
             $mapaTour = $mapa->getClientOriginalName();
@@ -94,7 +96,7 @@ class TourController extends Controller
             $tour['mapa'] = "$mapaTour";
         } else {
             $mapaTour = null;
-        }
+        } */
 
         $tour->keywords = $request->get('keywords');
         $tour->slug = $request->get('slug');
@@ -170,14 +172,15 @@ class TourController extends Controller
             $img->move($rutaImg, $imgTour);
             $tour->img = $imgTour;
         }
+        $tour->mapa = $request->get('mapa');
 
-        if ($request->hasFile('mapa')) {
+        /* if ($request->hasFile('mapa')) {
             $rutaMapa = public_path("img/buscador/");
             $mapa = $request->file('mapa');
             $mapaTour = $mapa->getClientOriginalName();
             $mapa->move($rutaMapa, $mapaTour);
             $tour->mapa = $mapaTour;
-        }
+        } */
 
         $tour->keywords = $request->get('keywords');
         $tour->slug = $request->get('slug');

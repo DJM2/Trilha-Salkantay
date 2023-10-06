@@ -27,7 +27,7 @@ class DjmblogController extends Controller
     }
     public function djmblogs()
     {
-        $blogs = Djmblog::query()->with('categorias')->get();
+        $blogs = Djmblog::query()->with('categorias')->orderBy('created_at', 'desc')->get();
         $tours = Tour::all();
         return view('djmblog.listadoblogs', compact('blogs', 'tours'));
     }
@@ -108,8 +108,11 @@ class DjmblogController extends Controller
      */
     public function show($slug)
     {
-        /* $djmblog = Djmblog::query()->with('categorias')->find($slug); */
-        $djmblog = Djmblog::query()->where('slug', $slug)->with('categorias')->firstOrFail();
+        $djmblog = Djmblog::query()
+        ->where('slug', $slug)
+        ->with('categorias')
+        ->orderBy('created_at', 'desc') 
+        ->firstOrFail();
         return view('djmblog.show', compact('djmblog'));
     }
 
@@ -166,8 +169,6 @@ class DjmblogController extends Controller
         // Redireccionar a la vista del detalle del registro actualizado
         return redirect()->route('djm.index', $djmblog->id)->with('success', 'El blog se ha actualizado correctamente.');
     }
-
-
 
     /**
      * @param int $id

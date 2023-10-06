@@ -12,7 +12,15 @@
                         <div class="banner_text_iner">
                             <h1 style="text-shadow: -2px -2px #525252">Trilha Salkantay</h1>
                             <p>As melhores caminhadas pelo Peru, Cusco e Machu Picchu</p>
-                            <a href="#" class="btn_1">Descubra agora</a>
+                            <a href="#inicio" class="btn_1">Descubra agora</a>
+                            @if (session('status'))
+                                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                                    O e-mail foi enviado com sucesso. Nós responderemos o mais rapidamente possível.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -41,30 +49,37 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" id="inicio">
                     <div class="booking_content">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel"
                                 aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="#">
-                                        @csrf
+                                    <form action="{{ route('form-index') }}" method="POST">
+                                        @csrf 
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <input tipe="text" class="gj-textbox-md" placeholder="Nome completo">
+                                                <input tipe="text" class="gj-textbox-md" name="nombre"
+                                                    placeholder="Nome completo">
                                             </div>
                                             <div class="form_colum">
-                                                <input tipe="text" class="gj-textbox-md" placeholder="Email:">
+                                                <input tipe="text" class="gj-textbox-md" name="email"
+                                                    placeholder="Email:">
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_2" placeholder="Check in date">
+                                                <input type="date" class="gj-textbox-md" name="date"
+                                                    placeholder="Check in date">
                                             </div>
                                             <div class="form_colum">
-                                                <textarea style="height: 50px" name="mensaje" class="gj-textbox-md" cols="30" rows="10"
+                                                <textarea style="height: 56px; margin-left:-30px" name="mensaje" class="gj-textbox-md" cols="25" rows="10"
                                                     placeholder="Escriba acá su mensaje"></textarea>
                                             </div>
+                                            <div class="form_colum" style="display: none">
+                                                <input type="text" class="gj-textbox-md" name="solicitud" placeholder="Escriba aca su mensaje">
+                                            </div>
                                             <div class="form_btn">
-                                                <a href="#" class="btn_1">search</a>
+                                                <button type="submit" class="btn_1"
+                                                    style="border: none">Solicitar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -72,66 +87,32 @@
                             </div>
                             <div class="tab-pane fade" id="tricket" role="tabpanel" aria-labelledby="tricket-tab">
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form action="{{ route('search') }}" method="get">
+                                        @csrf
                                         <div class="form-row">
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Choosace place </option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
+                                            <div style="width:100%; height: 50px" class="mb-3">
+                                                <input
+                                                    style="width: 100%;height: 100%; border: 1px solid #2493e0; padding: 1em;"
+                                                    id="name" name="name" placeholder="Pesquisar tour no Peru">
                                             </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_3" placeholder="Check in date">
-                                            </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_4" placeholder="Check in date">
-                                            </div>
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Persone </option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="form_btn">
-                                                <a href="#" class="btn_1">search</a>
-                                            </div>
+                                            <input class="btn_1 mx-auto text-center" type="submit" value="Procurar"
+                                                style="border: none;">
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="place" role="tabpanel" aria-labelledby="place-tab">
                                 <div class="booking_form">
-                                    <form action="#">
+                                    <form action="{{ route('blogsearch') }}" method="get">
+                                        @csrf
                                         <div class="form-row">
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Choosace place </option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
+                                            <div style="width:100%; height: 50px" class="mb-3">
+                                                <input
+                                                    style="width: 100%;height: 100%; border: 1px solid #2493e0; padding: 1em;"
+                                                    id="name" name="name" placeholder="Pesquisar tópicos do blog do Peru">
                                             </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_5" placeholder="Check in date">
-                                            </div>
-                                            <div class="form_colum">
-                                                <input id="datepicker_6" placeholder="Check in date">
-                                            </div>
-                                            <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Persone </option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="form_btn">
-                                                <a href="#" class="btn_1">search</a>
-                                            </div>
+                                            <input class="btn_1 mx-auto text-center" type="submit" value="Procurar"
+                                                style="border: none;">
                                         </div>
                                     </form>
                                 </div>
@@ -156,12 +137,13 @@
             <div class="row">
                 @foreach ($tours as $tour)
                     <div class="col-lg-6 col-md-6">
-                        <div class="single_place">
+                        <div class="single_place">                            
                             <img src="../img/buscador/{{ $tour->img }}" alt="{{ $tour->nombre }}" loading="lazy">
+                            <h3 class="tituloh3">{{ $tour->nombre }}</h3>
                             <div class="hover_Text d-flex align-items-end justify-content-between">
                                 <div class="hover_text_iner">
                                     <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="place_btn">Ver
-                                        tour</a>
+                                        tour</a>                                        
                                     <h3>{{ $tour->nombre }}</h3>
                                     <p>{{ $tour->descripcion }}</p>
                                     <div class="row iconos-tours mt-3">
@@ -200,10 +182,12 @@
                                                 {{ $blog->updated_at->format('d/m/Y') }}</p>
                                             <p>
                                                 @foreach ($blog->categorias as $categoria)
-                                                    <a> <span class="tags">{{ $categoria->nombre }}</span></a>
+                                                    <a href="{{ route('tag', $categoria->slug) }}"> <span
+                                                            class="tags">{{ $categoria->nombre }}</span></a>
                                                 @endforeach
                                             </p>
-                                            <a href="#" class="btn_1">Ler blog</a>
+                                            <a href="{{ route('muestrame', ['slug' => $blog->slug]) }}"
+                                                class="btn_1">Ler blog</a>
                                         </div>
                                     </div>
                                 </div>

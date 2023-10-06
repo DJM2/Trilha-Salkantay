@@ -4,8 +4,8 @@
     <meta name="keywords" content="{{ $blog->keywords }}" />
     <meta name="description" content="{{ $blog->descripcion }}">
     <link rel="canonical" href="{{ request()->fullUrl() }}" />
-    <meta property="og:image" content="{{asset( $blog->img) }}" />
-    <meta property="og:image:secure_url" content="{{asset( $blog->img) }}" />
+    <meta property="og:image" content="{{ asset($blog->img) }}" />
+    <meta property="og:image:secure_url" content="{{ asset($blog->img) }}" />
     <meta property="og:title" content="{{ $blog->nombre }}" />
     <meta property="og:description" content="{{ $blog->descripcion }}" />
     <meta property="og:locale" content="es" />
@@ -48,60 +48,61 @@
 
         <div class="container mt-5">
             <div class="row">
-
                 <div class="col-lg-9 ingrid">
                     <div class="row">
-                        <div class="col-lg-12 text-justify">
+                        <div class="col-lg-12 text-justify contenidoDestinos">
                             {!! $blog->cuerpo !!}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 suscribe">
-                    <div class="card">
-                        <h4>Pesquisar blog:</h4>
-                        <form action="{{ route('blogsearch') }}" method="get">
-                            @csrf
-                            <div class="form-row">
-                                <div class="form-outline">
-                                    <input type="text" id="name" name="name" class="form-control form-control-sm"
-                                        placeholder="Escreva tema..." required>
-                                </div>
-                                <input type="submit" id="buscar" class="search" value="Buscar">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card">
-                        <h4>Postagens recentes:</h4>
-                        @foreach ($djmblogs as $blog)
-                            <a href="{{ route('muestrame', ['slug' => $blog->slug]) }}">
-                                <div class="row thumb">
-                                    <div class="col-4">
-                                        <img src="{{ $blog->imgThumb }}" alt="{{ $blog->nombre }}" loading="lazy">
+                    <div style="position:sticky; top: 110px">
+                        <div class="card">
+                            <h4>Pesquisar blog:</h4>
+                            <form action="{{ route('blogsearch') }}" method="get">
+                                @csrf
+                                <div class="form-row">
+                                    <div class="form-outline">
+                                        <input type="text" id="name" name="name"
+                                            class="form-control form-control-sm" placeholder="Escreva tema..." required>
                                     </div>
-                                    <div class="col-8 d-flex align-items-center">
-                                        <h5 style="font-size: 14px; font-weight: bold;">{{ $blog->nombre }}</h5>
-                                    </div>
+                                    <input type="submit" id="buscar" class="search" value="Buscar">
                                 </div>
-                            </a>
-                        @endforeach
-                    </div>
-                    <div class="card">
-                        <h4>Tours:</h4>
-                        <div class="toursBlog">
-                            @foreach ($tours->take(4) as $tour)
-                                <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
-                                    <i class="icon-arrow-right"></i>· {{ $tour->nombre }}
-                                    <span>→ {{ $tour->dias }} días</span>
+                            </form>
+                        </div>
+                        <div class="card">
+                            <h4>Postagens recentes:</h4>
+                            @foreach ($djmblogs as $blog)
+                                <a href="{{ route('muestrame', ['slug' => $blog->slug]) }}">
+                                    <div class="row thumb">
+                                        <div class="col-4">
+                                            <img src="{{ $blog->imgThumb }}" alt="{{ $blog->nombre }}" loading="lazy">
+                                        </div>
+                                        <div class="col-8 d-flex align-items-center">
+                                            <h5 style="font-size: 14px; font-weight: bold;">{{ $blog->nombre }}</h5>
+                                        </div>
+                                    </div>
                                 </a>
                             @endforeach
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="tagsDiv">
-                            <h4>Tags do blog:</h4>
-                            @foreach ($blog->categorias as $categoria)
-                                <a href="{{ route('tag', $categoria->slug) }}"> #{{ $categoria->nombre }}</a>
-                            @endforeach
+                        <div class="card">
+                            <h4>Tours:</h4>
+                            <div class="toursBlog">
+                                @foreach ($tours->take(4) as $tour)
+                                    <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}">
+                                        <i class="icon-arrow-right"></i>· {{ $tour->nombre }}
+                                        <span>→ {{ $tour->dias }} días</span>
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="tagsDiv">
+                                <h4>Tags do blog:</h4>
+                                @foreach ($blog->categorias as $categoria)
+                                    <a href="{{ route('tag', $categoria->slug) }}"> #{{ $categoria->nombre }}</a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h4>Reserva Trilha Salkantay <span class="subrayado"> 2023</span></h4>
-                    <a href="">Reservar</a>
+                    <a href="https://www.trilhasalkantay.com/trilha-inca-classica-4-dias" target="_blank">Reservar</a>
                 </div>
             </div>
         </div>

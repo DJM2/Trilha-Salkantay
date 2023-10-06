@@ -13,4 +13,5 @@
 <file name="vite.config.js" server="ftp.happyperutours.com" local="133135318631383031" remote="133149984600000000" Dst="0" />
 <file name=".env" server="ftp.happyperutours.com" local="133150027327612745" remote="133150304400000000" Dst="0" />
 <file name="artisan" server="ftp.happyperutours.com" local="133129126980000000" remote="133149984600000000" Dst="0" />
+<file name="composer.json" server="199.103.62.205" local="133393514896883644" remote="133393698000000000" Dst="0" />
 </dwsync>

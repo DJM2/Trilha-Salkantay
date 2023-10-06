@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt" style="scroll-behavior: smooth;">
 
 <head>
     <!-- Required meta tags -->
@@ -8,41 +8,18 @@
     <title>Trilha Salkantay to Machu Picchu - @yield('titulo')</title>
     <link rel="icon" href="{{ asset('img/thumb/favicon-admin.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/animate.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/gijgo.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/gijgo.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     @yield('metas')
-    <script type="text/javascript">
-        function callbackThen(response) {
-            console.log(response.status);
-            response.json().then(function(data) {
-                console.log(data);
-                if (data && data.score) {
-                    document.getElementById("recaptcha_score").value = data.score;
-                    document.getElementById("mi_formulario").submit();
-                }
-            });
-        }
-
-        function callbackCatch(error) {
-            console.error('Error:', error)
-        }
-    </script>
-
-    {!! htmlScriptTagJsApi([
-        'callback_then' => 'callbackThen',
-        'callback_catch' => 'callbackCatch',
-    ]) !!}
-</head>
-
 <body>
     <header class="main_menu">
         <div class="sub_menu">
@@ -50,8 +27,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <div class="sub_menu_right_content text-center">
-                            <a href="#">info@trilhasalkantay.com </a>
-                            <a href="#"><span class="colorS responsive">|</span> niko@nctravelcusco.com</a>
+                            <a href="mailto:niko@nctravelcusco.com">info@trilhasalkantay.com </a>
+                            <a href="mailto:niko@nctravelcusco.com"><span class="colorS responsive">|</span> niko@nctravelcusco.com</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">

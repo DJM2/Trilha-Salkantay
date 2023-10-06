@@ -17,7 +17,7 @@
 
 .top_place .single_place img {
   width: 100%;
-  height: 320px;
+  height: 100%;
   object-fit: cover;
 }
 

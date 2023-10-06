@@ -116,8 +116,9 @@
                         </div>
                         <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
                             @if ($tour->mapa)
-                                <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto"
-                                    loading="lazy" data-toggle="modal" data-target="#myModal" class="cursor-pointer">
+                                {{-- <img src="../img/buscador/{{ $tour->mapa }}" width="100%" height="auto"
+                                    loading="lazy" data-toggle="modal" data-target="#myModal" class="cursor-pointer"> --}}
+                                {!! $tour->mapa !!}
                             @endif
                         </div>
                         <!------text for popu image------------------>
@@ -215,12 +216,61 @@
                                     <textarea class="form-control" name="mensaje" id="mensaje">
                                     </textarea>
                                 </div>
+                                <div class="form-group col-md-12 col-12" style="display:none;">
+                                    <label for="mensaje">Tipo de solicitud:</label>
+                                    <input type="text" name="verificar">
+                                </div>
                             </div>
-                            <input type="text" name="verificar" style="display:none;">                            
+
+                            <div class="mb-4">
+                                <label for="suma">Resolva o Captcha antes de enviar:</label><br>
+                                <span id="num1"></span> + <span id="num2"></span> =
+                                <span>
+                                    <input type="number" id="respuesta" name="respuesta" required>
+                                </span>
+                                <span>
+                                    <button type="button" id="verificar" style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
+                                </span>
+                                <input type="hidden" id="valorCorrecto" name="valorCorrecto">
+                            </div>
                             <div class="text-center">
-                                <button type="submit" class="boton-card">Enviar</button>
+                                <button type="submit" class="boton-card" id="enviar" disabled>Enviar</button>
                             </div>
                         </form>
+                        <script>
+                            var intentos = 0;
+                            function generarSumaAleatoria() {
+                                var num1 = Math.floor(Math.random() * 12) + 3; 
+                                var num2 = Math.floor(Math.random() * (15 - num1)) + num1;
+                                var suma = num1 + num2;
+                                var num1Elemento = document.getElementById("num1");
+                                var num2Elemento = document.getElementById("num2");
+                                num1Elemento.textContent = num1;
+                                num2Elemento.textContent = num2;
+                                var valorCorrecto = document.getElementById("valorCorrecto");
+                                valorCorrecto.value = suma;
+                            }
+                            window.onload = generarSumaAleatoria;
+                            document.getElementById("verificar").addEventListener("click", function() {
+                                var respuestaUsuario = parseInt(document.getElementById("respuesta").value);
+                                var valorCorrecto = parseInt(document.getElementById("valorCorrecto").value);
+
+                                if (respuestaUsuario === valorCorrecto) {
+                                    alert("Respuesta correcta. Puedes enviar el formulario.");
+                                    document.getElementById("enviar").disabled = false; 
+                                } else {
+                                    intentos++;
+
+                                    if (intentos === 3) {
+                                        alert("Has fallado 3 veces. Se te redirigirá a la página de error.");
+                                        window.location.href = "404"; 
+                                    } else {
+                                        alert("Respuesta incorrecta. Intento " + intentos + " de 3. Por favor, verifica tu respuesta.");
+                                        generarSumaAleatoria();
+                                    }
+                                }
+                            });
+                        </script>
 
                         <div class="card align-items-center text-center cardContact">
                             <div class="card-body">
@@ -243,10 +293,14 @@
                             @foreach ($blogs as $blog)
                                 <div class="row thumb">
                                     <div class="col-4">
-                                        <img src="{{ $blog->img }}" alt="{{ $blog->nombre }}">
+                                        <a href="{{ route('muestrame', $blog->slug) }}" target="_blank">
+                                            <img src="{{ $blog->imgThumb }}" alt="{{ $blog->nombre }}" loading="lazy">
+                                        </a>
                                     </div>
                                     <div class="col-8 d-flex align-items-center">
-                                        <h5>{{ $blog->nombre }}</h5>
+                                        <a href="{{ route('muestrame', $blog->slug) }}" target="_blank">
+                                            <h5>{{ $blog->nombre }}</h5>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach

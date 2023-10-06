@@ -85,9 +85,11 @@
                     </div>
                     <div class="col-lg-6 mt-4">
                         <label for="mapa" class="form-label">Mapa:</label>
-                        <input type="file" id="mapa" name="mapa" class="form-control" accept="image/*"
+                        {{-- <input type="file" id="mapa" name="mapa" class="form-control" accept="image/*"
                             value="{{ $tour->mapa }}">
-                        <img src="../../img/buscador/{{ $tour->mapa }}" style="max-width: 100%; object-fit: cover">
+                        <img src="../../img/buscador/{{ $tour->mapa }}" style="max-width: 100%; object-fit: cover"> --}}
+                        <textarea class="ckeditor form-control" name="mapa" id="mapa">{!! Request::old('content', $tour->mapa) !!}</textarea>
+                        </textarea>
                     </div>
 
 
