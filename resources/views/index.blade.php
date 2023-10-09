@@ -60,11 +60,11 @@
                                         <div class="form-row">
                                             <div class="form_colum">
                                                 <input tipe="text" class="gj-textbox-md" name="nombre"
-                                                    placeholder="Nome completo">
+                                                    placeholder="Nome completo" required>
                                             </div>
                                             <div class="form_colum">
                                                 <input tipe="text" class="gj-textbox-md" name="email"
-                                                    placeholder="Email:">
+                                                    placeholder="Email:" required>
                                             </div>
                                             <div class="form_colum">
                                                 <input type="date" class="gj-textbox-md" name="date"

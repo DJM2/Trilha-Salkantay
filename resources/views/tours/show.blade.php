@@ -221,15 +221,15 @@
                                     <input type="text" name="verificar">
                                 </div>
                             </div>
-
-                            <div class="mb-4">
+                            <div class="mb-4" id="captcha" style="opacity: 1; transition: opacity 0.5s ease;">
                                 <label for="suma">Resolva o Captcha antes de enviar:</label><br>
                                 <span id="num1"></span> + <span id="num2"></span> =
                                 <span>
                                     <input type="number" id="respuesta" name="respuesta" required>
                                 </span>
                                 <span>
-                                    <button type="button" id="verificar" style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
+                                    <button type="button" id="verificar"
+                                        style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
                                 </span>
                                 <input type="hidden" id="valorCorrecto" name="valorCorrecto">
                             </div>
@@ -239,8 +239,9 @@
                         </form>
                         <script>
                             var intentos = 0;
+
                             function generarSumaAleatoria() {
-                                var num1 = Math.floor(Math.random() * 12) + 3; 
+                                var num1 = Math.floor(Math.random() * 12) + 3;
                                 var num2 = Math.floor(Math.random() * (15 - num1)) + num1;
                                 var suma = num1 + num2;
                                 var num1Elemento = document.getElementById("num1");
@@ -255,15 +256,18 @@
                                 var respuestaUsuario = parseInt(document.getElementById("respuesta").value);
                                 var valorCorrecto = parseInt(document.getElementById("valorCorrecto").value);
 
-                                if (respuestaUsuario === valorCorrecto) {
-                                    alert("Respuesta correcta. Puedes enviar el formulario.");
-                                    document.getElementById("enviar").disabled = false; 
+                                if (respuestaUsuario === valorCorrecto) {                                    
+                                    var captchaDiv = document.getElementById("captcha");
+                                    captchaDiv.style.opacity = "0";
+                                    setTimeout(function() {
+                                        captchaDiv.style.display = "none";
+                                    }, 500);
+                                    document.getElementById("enviar").disabled = false;
                                 } else {
                                     intentos++;
-
                                     if (intentos === 3) {
                                         alert("Has fallado 3 veces. Se te redirigirá a la página de error.");
-                                        window.location.href = "404"; 
+                                        window.location.href = "404";
                                     } else {
                                         alert("Respuesta incorrecta. Intento " + intentos + " de 3. Por favor, verifica tu respuesta.");
                                         generarSumaAleatoria();
