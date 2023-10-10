@@ -56,7 +56,7 @@
                                 aria-labelledby="hotel-tab">
                                 <div class="booking_form">
                                     <form action="{{ route('form-index') }}" method="POST">
-                                        @csrf 
+                                        @csrf
                                         <div class="form-row">
                                             <div class="form_colum">
                                                 <input tipe="text" class="gj-textbox-md" name="nombre"
@@ -75,8 +75,25 @@
                                                     placeholder="Escriba acá su mensaje"></textarea>
                                             </div>
                                             <div class="form_colum" style="display: none">
-                                                <input type="text" class="gj-textbox-md" name="solicitud" placeholder="Escriba aca su mensaje">
+                                                <input type="text" class="gj-textbox-md" name="solicitud"
+                                                    placeholder="Escriba aca su mensaje">
                                             </div>
+                                            {{-- <div class="mb-4">
+                                                <p id="checkmark" style="display: none; text-align:center; transition: opacity 0.5s ease">
+                                                    Resposta correta! &#10004;</p>
+                                                <div id="captcha" style="opacity: 1; transition: opacity 0.5s ease;">
+                                                    <label for="suma">Resolva o Captcha antes de enviar:</label><br>
+                                                    <span id="num1"></span> + <span id="num2"></span> =
+                                                    <span>
+                                                        <input type="number" id="respuesta" name="respuesta" required>
+                                                    </span>
+                                                    <span>
+                                                        <button type="button" id="verificar"
+                                                            style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
+                                                    </span>
+                                                    <input type="hidden" id="valorCorrecto" name="valorCorrecto">
+                                                </div>
+                                            </div> --}}
                                             <div class="form_btn">
                                                 <button type="submit" class="btn_1"
                                                     style="border: none">Solicitar</button>
@@ -109,7 +126,8 @@
                                             <div style="width:100%; height: 50px" class="mb-3">
                                                 <input
                                                     style="width: 100%;height: 100%; border: 1px solid #2493e0; padding: 1em;"
-                                                    id="name" name="name" placeholder="Pesquisar tópicos do blog do Peru">
+                                                    id="name" name="name"
+                                                    placeholder="Pesquisar tópicos do blog do Peru">
                                             </div>
                                             <input class="btn_1 mx-auto text-center" type="submit" value="Procurar"
                                                 style="border: none;">
@@ -137,13 +155,13 @@
             <div class="row">
                 @foreach ($tours as $tour)
                     <div class="col-lg-6 col-md-6">
-                        <div class="single_place">                            
+                        <div class="single_place">
                             <img src="../img/buscador/{{ $tour->img }}" alt="{{ $tour->nombre }}" loading="lazy">
                             <h3 class="tituloh3">{{ $tour->nombre }}</h3>
                             <div class="hover_Text d-flex align-items-end justify-content-between">
                                 <div class="hover_text_iner">
                                     <a href="{{ route('tours.show', ['slug' => $tour->slug]) }}" class="place_btn">Ver
-                                        tour</a>                                        
+                                        tour</a>
                                     <h3>{{ $tour->nombre }}</h3>
                                     <p>{{ $tour->descripcion }}</p>
                                     <div class="row iconos-tours mt-3">

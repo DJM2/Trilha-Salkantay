@@ -221,17 +221,21 @@
                                     <input type="text" name="verificar">
                                 </div>
                             </div>
-                            <div class="mb-4" id="captcha" style="opacity: 1; transition: opacity 0.5s ease;">
-                                <label for="suma">Resolva o Captcha antes de enviar:</label><br>
-                                <span id="num1"></span> + <span id="num2"></span> =
-                                <span>
-                                    <input type="number" id="respuesta" name="respuesta" required>
-                                </span>
-                                <span>
-                                    <button type="button" id="verificar"
-                                        style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
-                                </span>
-                                <input type="hidden" id="valorCorrecto" name="valorCorrecto">
+                            <div class="mb-4">
+                                <p id="checkmark" style="display: none; text-align:center; transition: opacity 0.5s ease">
+                                    Resposta correta! &#10004;</p>
+                                <div id="captcha" style="opacity: 1; transition: opacity 0.5s ease;">
+                                    <label for="suma">Resolva o Captcha antes de enviar:</label><br>
+                                    <span id="num1"></span> + <span id="num2"></span> =
+                                    <span>
+                                        <input type="number" id="respuesta" name="respuesta" required>
+                                    </span>
+                                    <span>
+                                        <button type="button" id="verificar"
+                                            style="background:#fff; color:#000;border:1px solid grey">Verificar</button>
+                                    </span>
+                                    <input type="hidden" id="valorCorrecto" name="valorCorrecto">
+                                </div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="boton-card" id="enviar" disabled>Enviar</button>
@@ -256,13 +260,18 @@
                                 var respuestaUsuario = parseInt(document.getElementById("respuesta").value);
                                 var valorCorrecto = parseInt(document.getElementById("valorCorrecto").value);
 
-                                if (respuestaUsuario === valorCorrecto) {                                    
+                                if (respuestaUsuario === valorCorrecto) {
                                     var captchaDiv = document.getElementById("captcha");
                                     captchaDiv.style.opacity = "0";
                                     setTimeout(function() {
                                         captchaDiv.style.display = "none";
                                     }, 500);
                                     document.getElementById("enviar").disabled = false;
+                                    document.getElementById('checkmark').style.display = 'block';
+                                    setTimeout(function() {
+                                        document.getElementById('checkmark').style.display =
+                                            'none';
+                                    }, 1200);
                                 } else {
                                     intentos++;
                                     if (intentos === 3) {
